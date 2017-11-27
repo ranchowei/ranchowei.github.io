@@ -1,0 +1,151 @@
+body {
+    margin: 0px;
+    padding: 0px;
+}
+
+.imagelist {
+    text-align: center;
+    margin-top: 0.1vw;
+}
+
+.imagelist>img {
+    width: 30%;
+    -webkit-transition: width 1s;
+    transition: width 1s;
+}
+
+.imagelist>img:hover {
+    box-shadow: 2px 2px 5px 1px rgb(80, 80, 80);
+    width: 28%;
+}
+
+.container {
+    border-color: black;
+    border-style: solid;
+    border-width: 1.1px;
+    padding: 30px 10px 30px 10px;
+    /* padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 30px;
+    padding-bottom: 30px; */
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #e7dcab;
+    border-radius: 10vw;
+    background-image: url(../img/222.jpg);
+    background-size: 84vw;
+}
+
+.container>img {
+    width: 30%;
+}
+
+.photo {
+    width: 20vw;
+    height: 20vw;
+    background-image: url(../img/1.jpg);
+    background-size: 19.5vw;
+    background-position-x: 0.5vw;
+    background-position-y: -3vw;
+    border-radius: 50%;
+    float: left;
+}
+
+.info {
+    height: 27vw;
+    margin-left: 25vw;
+}
+
+.header {
+    border-bottom-color: #33a298;
+    overflow: auto;
+}
+
+.music {
+    x
+}
+
+.name {
+    font-size: 2.5vw;
+    font-style: oblique;
+    font-weight: bold;
+    font-family: "Lobster", Sans-serif;
+}
+
+.w3-lobster {
+    font-family: "Lobster", Sans-serif;
+}
+
+.btn {
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: normal;
+    text-align: center;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    border-radius: 4px;
+}
+
+.btn-green {
+    background-color: #1d9d74;
+    color: #fff;
+}
+
+.btn-blue {
+    background-color: #606db7;
+    color: #fff;
+}
+
+.btn-yellow {
+    background-color: #F57C00;
+    color: #fff;
+}
+
+.btn-green:hover {
+    background-color: #167f5e;
+}
+
+.btn-blue:hover {
+    background-color: #3b4994;
+}
+
+.btn-yellow:hover {
+    background-color: #c56604;
+}
+
+.button {
+    x
+}
+
+.background1 {
+    background-image: url(../img/ttt.jpg);
+    background-size: 100vw;
+}
+
+.background2 {
+    background-image: url(../img/sss.jpg);
+    background-size: 100vw;
+}
+
+.background3 {
+    background-image: url(../img/111.jpg);
+    background-size: 100vw;
+}
+
+.background4 {
+    background-image: url(../img/www.jpg);
+    background-size: 100vw;
+}
+
+.text-center {
+    text-align: center;
+}

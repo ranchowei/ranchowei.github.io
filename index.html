@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ranchowei's home</title>
+    <!--
+<style>
+img {
+width: 300px;
+}
+</style>
+-->
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/font-awesome.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster&effect=brick-sign">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+
+<body>
+    <audio controls loop="loop" autoplay="autoplay">
+        <source src="./music/something just like this.mp3" type="audio/ogg">
+    </audio>
+
+    <div class="w3-top">
+        <div class="w3-bar w3-black w3-card">
+            <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+            <a href="#" class="w3-bar-item w3-button w3-padding-large">ABOUT</a>
+            <a href="#hobby" class="w3-bar-item w3-button w3-padding-large w3-hide-small">HOBBY</a>
+            <a href="#tour" class="w3-bar-item w3-button w3-padding-large w3-hide-small">TOUR</a>
+            <a href="#videos" class="w3-bar-item w3-button w3-padding-large w3-hide-small">VIDEOS</a>
+            <div class="w3-dropdown-hover w3-hide-small">
+                <button class="w3-padding-large w3-button" title="More">MORE <i class="fa fa-caret-down"></i></button>
+                <div class="w3-dropdown-content w3-bar-block w3-card-4">
+                    <a href="#" class="w3-bar-item w3-button">donate</a>
+                    <a href="#" class="w3-bar-item w3-button">loading</a>
+                    <a href="#" class="w3-bar-item w3-button">loading</a>
+                </div>
+            </div>
+            <a href="javascript:void(0)" class="w3-padding-large w3-hover-red w3-hide-small w3-right"><i class="fa fa-search"></i></a>
+        </div>
+    </div>
+
+    <div class="w3-animate-opacity background1">
+        <br>
+        <div class="container">
+            <div class="header">
+                <div class="photo">
+                    <!--<img src="./img/01.jpg" alt="">-->
+                </div>
+                <div class="info w3-lobster font-effect-brick-sign">
+                    <div class="name">name: wei jiachen</div>
+                    <div class="name">number：06374542</div>
+                    <div class="name">attending：Electrical & Information Engineering</div>
+                    <div class="name">hobby：sketch</div>
+                    <div class="button">
+
+                        <a class="btn btn-blue" href="https://www.facebook.com/wei.lancher.9" target="_blank">
+                            <i class="fa fa-facebook-official fa-lg" aria-hidden="true"></i> &nbsp; Facebook
+                        </a>
+                        <a class="btn btn-green" href="https://weixin.qq.com/" target="_blank">
+                            <i class="fa fa-weixin fa-lg" aria-hidden="true"></i> &nbsp; Wechat
+                        </a>
+                        <a class="btn btn-yellow" href="https://weibo.com/5774471597/profile?topnav=1&wvr=6&is_all=1" target="_blank">
+                            <i class="fa fa-weibo fa-lg" aria-hidden="true"></i> &nbsp; Weibo
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="imagelist">
+                <img src="./img/01.jpg" alt="">
+                <img src="./img/02.jpg" alt="">
+                <img src="./img/03.jpg" alt="">
+            </div>
+        </div>
+        <br>
+    </div>
+    <br>
+    <br>
+
+    <div id=hobby class="background2 text-center">
+        <br><br>
+        <h2>呵呵，以前的珍藏</h2>
+        <div class="w3-content w3-display-container">
+            <img class="mySlides" src="./img/img1/21.jpg" style="width:100%">
+            <img class="mySlides" src="./img/img1/22.jpg" style="width:100%">
+            <img class="mySlides" src="./img/img1/23.jpg" style="width:100%">
+            <img class="mySlides" src="./img/img1/24.jpg" style="width:100%">
+
+            <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+            <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
+        </div>
+
+        <script>
+            var slideIndex = 1;
+            showDivs(slideIndex);
+
+            function plusDivs(n) {
+                showDivs(slideIndex += n);
+            }
+
+            function showDivs(n) {
+                var i;
+                var x = document.getElementsByClassName("mySlides");
+                if (n > x.length) {
+                    slideIndex = 1
+                }
+                if (n < 1) {
+                    slideIndex = x.length
+                }
+                for (i = 0; i < x.length; i++) {
+                    x[i].style.display = "none";
+                }
+                x[slideIndex - 1].style.display = "block";
+            }
+        </script>
+        <br><br><br><br>
+    </div>
+
+    <br><br>
+
+    <div id=tour class="background3 text-center">
+        <br><br>
+        <div>
+            <h2>呃呃，在台之旅</h2>
+
+            <img class="mySlides1 w3-animate-fading" src="./img/10.jpg" style="width:100%">
+            <img class="mySlides1 w3-animate-fading" src="./img/11.jpg" style="width:100%">
+            <img class="mySlides1 w3-animate-fading" src="./img/12.jpg" style="width:100%">
+            <img class="mySlides1 w3-animate-fading" src="./img/13.jpg" style="width:100%">
+            <img class="mySlides1 w3-animate-fading" src="./img/14.jpg" style="width:100%">
+            <img class="mySlides1 w3-animate-fading" src="./img/15.jpg" style="width:100%">
+            <img class="mySlides1 w3-animate-fading" src="./img/16.jpg" style="width:100%">
+            <img class="mySlides1 w3-animate-fading" src="./img/17.jpg" style="width:100%">
+            <img class="mySlides1 w3-animate-fading" src="./img/18.jpg" style="width:100%">
+            <img class="mySlides1 w3-animate-fading" src="./img/19.jpg" style="width:100%">
+            <img class="mySlides1 w3-animate-fading" src="./img/20.jpg" style="width:100%">
+            <img class="mySlides1 w3-animate-fading" src="./img/51.jpg" style="width:100%">
+            <img class="mySlides1 w3-animate-fading" src="./img/52.jpg" style="width:100%">
+            <img class="mySlides1 w3-animate-fading" src="./img/53.jpg" style="width:100%">
+        </div>
+
+        <script>
+            var myIndex = 0;
+            carousel();
+
+            function carousel() {
+                var i;
+                var x = document.getElementsByClassName("mySlides1");
+                for (i = 0; i < x.length; i++) {
+                    x[i].style.display = "none";
+                }
+                myIndex++;
+                if (myIndex > x.length) {
+                    myIndex = 1
+                }
+                x[myIndex - 1].style.display = "block";
+                setTimeout(carousel, 3500);
+            }
+        </script>
+        <br>
+    </div>
+
+    <br><br>
+
+    <div id=videos class="background4 text-center">
+        <br><br>
+        <h2>嗯嗯，这是最近在做的数字钟</h2>
+        <div>
+            <iframe width="1150" height="670" src="https://www.youtube.com/embed/YcfCMQYyUiY">
+        </iframe>
+        </div>
+        <h1><b><font color="red">老师给个高分，好人一生平安！</font></b></h1>
+        <br><br><br><br><br>
+    </div>
+
+</body>
+
+</html>
