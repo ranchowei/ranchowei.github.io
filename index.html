@@ -152,6 +152,74 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-机器学习-吴恩达系列教程学习笔记-p1-p4" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="机器学习-吴恩达系列学习笔记-p1到p4"><a href="#机器学习-吴恩达系列学习笔记-p1到p4" class="headerlink" title="机器学习-吴恩达系列学习笔记-p1到p4"></a>机器学习-吴恩达系列学习笔记-p1到p4</h1><h3 id="2024-06-20-晚-20：52"><a href="#2024-06-20-晚-20：52" class="headerlink" title="2024-06-20 晚 20：52"></a>2024-06-20 晚 20：52</h3><p>视频链接：<br><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV164411b7dx/?p=4&spm_id_from=pageDriver&vd_source=754c1b7c1f7ebc1037f0d06a92135dcc">https://www.bilibili.com/video/BV164411b7dx/?p=4&amp;spm_id_from=pageDriver&amp;vd_source=754c1b7c1f7ebc1037f0d06a92135dcc</a></p>
+<h5 id="一、p1是介绍，以及引导课"><a href="#一、p1是介绍，以及引导课" class="headerlink" title="一、p1是介绍，以及引导课"></a>一、p1是介绍，以及引导课</h5><p>略</p>
+<h5 id="二、p2什么是机器学习"><a href="#二、p2什么是机器学习" class="headerlink" title="二、p2什么是机器学习"></a>二、p2什么是机器学习</h5><p>我的理解：让机器通过已知数据进行学习，像人脑一样通过数据总结经验或者说是算法，来应对或预测可能发生的事情。</p>
+<h5 id="三、监督学习"><a href="#三、监督学习" class="headerlink" title="三、监督学习"></a>三、监督学习</h5><ol>
+<li>什么是监督学习？<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">我的白话理解：会给出一组数据，给出答案或者一组真实发生的值，让机器去预测一组没有答案的数据。</span><br><span class="line"></span><br><span class="line">吴老师的说法：监督学习是指我们给算法一个数据集，其中包含了正确答案，算法的目的就是给出更多的正确答案。</span><br><span class="line">eng：we gave the algorithm a data set, in which the &quot;right answers&quot; were given, and the task of the algorith was to just produce more of these right answers.</span><br></pre></td></tr></table></figure></li>
+<li>回归regression<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">我的白话理解：用现有的数据连接为一个线性方程，利用这个线性方程预测可能发生的事情或者数据。</span><br><span class="line"></span><br><span class="line">吴老师的说法：我们想要预测连续的数值输出，给出的数据是离散值，我们设法预测连续值的属性。</span><br><span class="line">eng：we&#x27;re trying to predict a continuous valued output, maybe the given data is actually dicrete values, we&#x27;re trying to predict the sort of continuous values attribute.</span><br></pre></td></tr></table></figure></li>
+<li>分类classification<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">吴老师的说法：我们设法预测一个离散值输出。</span><br><span class="line">eng：we&#x27;re trying to predict a discrete valued output, 0 or 1,2,3...</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h5 id="四、无监督学习"><a href="#四、无监督学习" class="headerlink" title="四、无监督学习"></a>四、无监督学习</h5><ol>
+<li><p>什么是无监督学习</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">我的白话理解：给出一组数据，不给出标准答案，让机器学习自己分类</span><br><span class="line"></span><br><span class="line">吴老师的说法</span><br></pre></td></tr></table></figure></li>
+<li><p>聚类(cluster)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">我的白话理解：整个过程，我们没有告诉机器任何经验，这些经验包括要分成几类、什么样的数据属于什么种类，而是让机器自己对数据进行分类。</span><br><span class="line"></span><br><span class="line">吴老师的说法：基本的思想是给定一组不同的个体，对于每一个个体，机器去测量他们是否属于一个特定的一类。 运行一个聚类算法，归入不同的类。</span><br><span class="line">eng：the idea is to have a group of different individuals, and for each of them, you measure them how much they do or not belong to a certain cluster.</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>聚类-扩展到实际应用-鸡尾酒会算法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">给出一段混合音频，让机器分辨出有几种音频，并分离出多段音频。常常用来分离人声和背景音乐，通常如果规则编写需要编写许多代码，但机器学习只要一行代码，如下：</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[W,s,v] = svd((repmat(sum(x.*x,1),size(x,1),1).*x)*x&#x27;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将使用的工具</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">吴老师建议octave，我们可能会用python替代。</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="2024-06-20-晚-21：39-closed"><a href="#2024-06-20-晚-21：39-closed" class="headerlink" title="2024-06-20 晚 21：39 closed"></a>2024-06-20 晚 21：39 closed</h3>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2024/06/20/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%90%B4%E6%81%A9%E8%BE%BE%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-p1-p4/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-利用hexo搭建个人博客教程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
