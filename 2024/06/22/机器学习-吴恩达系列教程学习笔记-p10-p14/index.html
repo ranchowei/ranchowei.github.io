@@ -6,18 +6,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://ranchowei.github.io">
-  <title>Archives: 2024 | ranchowei&#39;s homepage</title>
+  <title>机器学习-吴恩达系列教程学习笔记-p10-p14 | ranchowei&#39;s homepage</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Slow it down,do it better!">
-<meta property="og:type" content="website">
-<meta property="og:title" content="ranchowei&#39;s homepage">
-<meta property="og:url" content="https://ranchowei.github.io/archives/2024/index.html">
+  <meta name="description" content="机器学习-吴恩达系列教程学习笔记-p10-p142024-06-22 下午 17:25一、梯度下降算法解析梯度下降算法：the gradient descent algorithm 还是一样，先列出算法公式如下：$\theta_j$:&#x3D;$\theta_j$-$\alpha$ $\frac{\partial }{\partial \theta_j}$ J($\theta_0$,$\thet">
+<meta property="og:type" content="article">
+<meta property="og:title" content="机器学习-吴恩达系列教程学习笔记-p10-p14">
+<meta property="og:url" content="https://ranchowei.github.io/2024/06/22/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%90%B4%E6%81%A9%E8%BE%BE%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-p10-p14/index.html">
 <meta property="og:site_name" content="ranchowei&#39;s homepage">
-<meta property="og:description" content="Slow it down,do it better!">
+<meta property="og:description" content="机器学习-吴恩达系列教程学习笔记-p10-p142024-06-22 下午 17:25一、梯度下降算法解析梯度下降算法：the gradient descent algorithm 还是一样，先列出算法公式如下：$\theta_j$:&#x3D;$\theta_j$-$\alpha$ $\frac{\partial }{\partial \theta_j}$ J($\theta_0$,$\thet">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://ranchowei.github.io/img/2024-06-22-%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0p10-1.png">
+<meta property="og:image" content="https://i.imgur.com/J5qXgI8.png">
+<meta property="og:image" content="https://ranchowei.github.io/img/2024-06-22-%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0p11-1.png">
+<meta property="og:image" content="https://i.imgur.com/YemOytT.png">
+<meta property="article:published_time" content="2024-06-22T09:24:21.000Z">
+<meta property="article:modified_time" content="2024-06-23T15:05:31.416Z">
 <meta property="article:author" content="Ranchowei">
-<meta property="article:tag" content="developer">
+<meta property="article:tag" content="machine learning">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ranchowei.github.io/img/2024-06-22-%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0p10-1.png">
   
     <link rel="alternative" href="/atom.xml" title="ranchowei&#39;s homepage" type="application/atom+xml">
   
@@ -161,36 +168,81 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-机器学习-吴恩达系列教程学习笔记-p10-p14" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      机器学习-吴恩达系列教程学习笔记-p10-p14
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2024" class="archive-year">2024</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2024/06/22/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%90%B4%E6%81%A9%E8%BE%BE%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-p10-p14/" class="archive-article-date">
+
+        
+        <a href="/2024/06/22/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%90%B4%E6%81%A9%E8%BE%BE%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-p10-p14/" class="archive-article-date">
   	<time datetime="2024-06-22T09:24:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-06-22</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2024/06/22/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%90%B4%E6%81%A9%E8%BE%BE%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-p10-p14/">机器学习-吴恩达系列教程学习笔记-p10-p14</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="机器学习-吴恩达系列教程学习笔记-p10-p14"><a href="#机器学习-吴恩达系列教程学习笔记-p10-p14" class="headerlink" title="机器学习-吴恩达系列教程学习笔记-p10-p14"></a>机器学习-吴恩达系列教程学习笔记-p10-p14</h1><h2 id="2024-06-22-下午-17-25"><a href="#2024-06-22-下午-17-25" class="headerlink" title="2024-06-22 下午 17:25"></a>2024-06-22 下午 17:25</h2><h3 id="一、梯度下降算法解析"><a href="#一、梯度下降算法解析" class="headerlink" title="一、梯度下降算法解析"></a>一、梯度下降算法解析</h3><p>梯度下降算法：the gradient descent algorithm</p>
+<p>还是一样，先列出算法公式如下：<br /><br>$\theta_j$:&#x3D;$\theta_j$-$\alpha$ $\frac{\partial }{\partial \theta_j}$ J($\theta_0$,$\theta_1$) <br /></p>
+<p>$\alpha$ : learning rate 学习速率 <br /><br>$\frac{\partial }{\partial \theta_j}$ : derivative term 导数项 <br /></p>
+<p>首先简化问题，我们有限考虑仅有一个$\theta$ 的情况，在只有一个变量一维图形下可以直观感受公式的含义。我们可以看到图中导数项实际是站在该位置点做二次函数这一点的切线的斜率。因此当我们站在最低点右侧时，这个导数项是正数(因为切线切斜率为正)，那么对$\theta$ 赋值就等于 $\theta$ - 正数，相当于往左侧移动；当我们站在最低点左侧时，这个导数项是负数，那么对$\theta$ 赋值就等于 $\theta$ - 负数，相当于往右侧移动。这意味着这个公式会让我们无论处在哪个位置都会向最低点走一小步。这说明了在一个变量情况下这个公式是可靠的，它会一点点让我们走向代价函数的最低点。<br><img src="/./img/2024-06-22-%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0p10-1.png" alt="图片1"><br><img src="https://i.imgur.com/J5qXgI8.png" alt="avatar"><br>然后，我们考虑$\alpha$ 在这个公式中的影响，首先可以假设它的值很小时，那意味着每一次我们的直走很小一段下山的路，这样很慢才能找到最低点。而如果这个值很大时，那就有可能在下山时因为步长过大错过最低点。这种一次次越过最低点的专业术语称为发散。取值过小和过大这显然都不是我们希望看到的，我们希望它能最终收敛，并且这一过程尽量快。</p>
+<p>为了不错过这个最低点，我们是否有必要将$\alpha$ 的值随着接近最低点而设置的越来越小呢？答案是其实没有必要。因为随着接近最低点，求导项即斜率会逐渐趋近于0，这也意味着，它会主动变慢下降的速度。</p>
+<p>吴老师原话：As we approach a local minimum,gradient descent will automatically take smaller steps.So,no need to decrease $\alpha$ over time.</p>
+<p>这就是梯度下降的含义，这个求导项会随着离最低点越来越近而每次下降的速度越来越小。</p>
+<h3 id="二、线性回归算法"><a href="#二、线性回归算法" class="headerlink" title="二、线性回归算法"></a>二、线性回归算法</h3><ol>
+<li><p>线性回归算法是怎么计算出来的？<br>结合代价函数和梯度算法，我们就得到了线性回归算法。</p>
+</li>
+<li><p>求解过程：<br><img src="/./img/2024-06-22-%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0p11-1.png" alt="图片2"><br><img src="https://i.imgur.com/YemOytT.png" alt="avatar"><br>线性回归的代价函数总是一个弓状函数(bow-shaped function)，专业术语叫凸函数(convex function)</p>
+</li>
+<li><p>什么是batch梯度下降？<br>Batch: each step of gradient descent uses all the training examples.<br>指的是每一次梯度下降算法都需要遍历整个训练集的样本。</p>
+</li>
+</ol>
+<h3 id="三、复习矩阵和向量"><a href="#三、复习矩阵和向量" class="headerlink" title="三、复习矩阵和向量"></a>三、复习矩阵和向量</h3><p>矩阵(matix)：rectangular array of numbers由数字组成的矩阵阵列。它是一种二维数组</p>
+<p>矩阵的维度(dimension of matrix): number of rows x number of column.矩阵的行数乘以列数，如4行3列的矩阵我们记作 4x2 matrix</p>
+<p>矩阵的元素(matrix elements): $A_ij$, 指的是第i行第j列的元素。</p>
+<p>向量(vector): an n x 1 matrix, 指的是n行1列的矩阵。</p>
+<p>向量的元素(vector elements): $y_i$ ,指第i个元素。</p>
+<p>通常我们用小写字母表示向量，用大写字母表示矩阵。</p>
+<h3 id="四、复习矩阵加法和标量乘法"><a href="#四、复习矩阵加法和标量乘法" class="headerlink" title="四、复习矩阵加法和标量乘法"></a>四、复习矩阵加法和标量乘法</h3><p>matrix addition(矩阵加法)：对应位置相加。并且加法计算必须是同纬度，不同维度则是error。</p>
+<p>scalar multiplication(标量乘法): 所有位置乘以标量。</p>
+<h3 id="五、复习矩阵乘法"><a href="#五、复习矩阵乘法" class="headerlink" title="五、复习矩阵乘法"></a>五、复习矩阵乘法</h3><p>大学知识，简单列出。</p>
+<p>R(3x2) * R(2x1) &#x3D; R(3x1)</p>
+<p>结果第i行第i列&#x3D;第i行乘以第i列。</p>
+<h2 id="2024-06-23-晚-23-05-closed"><a href="#2024-06-23-晚-23-05-closed" class="headerlink" title="2024-06-23 晚 23:05 closed"></a>2024-06-23 晚 23:05 closed</h2>
+      
 
-        <div class="article-info info-on-right">
-          
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -202,257 +254,106 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://ranchowei.github.io/2024/06/22/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%90%B4%E6%81%A9%E8%BE%BE%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-p10-p14/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2024/06/22/java-%E5%9F%BA%E7%A1%80%E6%A0%B8%E5%BF%83%E6%80%BB%E7%BB%93/" class="archive-article-date">
-  	<time datetime="2024-06-22T05:09:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-06-22</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2024/06/22/java-%E5%9F%BA%E7%A1%80%E6%A0%B8%E5%BF%83%E6%80%BB%E7%BB%93/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">java - 基础核心总结</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2024/06/22/java-%E5%9F%BA%E7%A1%80%E6%A0%B8%E5%BF%83%E6%80%BB%E7%BB%93/">java - 基础核心总结</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2024/06/21/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%90%B4%E6%81%A9%E8%BE%BE%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-p5-p9/" class="archive-article-date">
-  	<time datetime="2024-06-21T12:52:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-06-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2024/06/21/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%90%B4%E6%81%A9%E8%BE%BE%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-p5-p9/">机器学习-吴恩达系列教程学习笔记-p5-p9</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">machine learning</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2024/06/21/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%90%B4%E6%81%A9%E8%BE%BE%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-p1-p4/" class="archive-article-date">
-  	<time datetime="2024-06-21T12:52:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-06-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2024/06/21/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%90%B4%E6%81%A9%E8%BE%BE%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-p1-p4/">机器学习-吴恩达系列教程学习笔记-p1-p4</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">machine learning</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2024/06/21/%E5%88%A9%E7%94%A8hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/" class="archive-article-date">
-  	<time datetime="2024-06-21T12:52:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-06-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2024/06/21/%E5%88%A9%E7%94%A8hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/">利用hexo搭建个人博客教程</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">common tutorial</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2024/06/21/deeplearning.ai-chatgpt%E6%8F%90%E7%A4%BA%E5%B7%A5%E7%A8%8B%E5%BC%80%E5%8F%91%E8%80%85%E5%AD%A6%E4%B9%A0/" class="archive-article-date">
-  	<time datetime="2024-06-21T06:02:37.743Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-06-21</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2024/06/19/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/" class="archive-article-date">
-  	<time datetime="2024-06-19T11:48:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-06-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2024/06/19/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/">我的第一篇博客文章</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">test</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2024/06/19/hello-world/" class="archive-article-date">
-  	<time datetime="2024-06-19T11:25:00.004Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-06-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2024/06/19/hello-world/">Hello World</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -475,8 +376,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,
