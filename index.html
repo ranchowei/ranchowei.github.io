@@ -163,6 +163,138 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-java-基础核心总结-1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2024/06/24/java-%E5%9F%BA%E7%A1%80%E6%A0%B8%E5%BF%83%E6%80%BB%E7%BB%93-1/">java-基础核心总结-1</a>
+    </h1>
+  
+
+        
+        <a href="/2024/06/24/java-%E5%9F%BA%E7%A1%80%E6%A0%B8%E5%BF%83%E6%80%BB%E7%BB%93-1/" class="archive-article-date">
+  	<time datetime="2024-06-24T06:21:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-06-24</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="java-基础核心总结-1"><a href="#java-基础核心总结-1" class="headerlink" title="java-基础核心总结-1"></a>java-基础核心总结-1</h1><h2 id="2024-06-24-中午-14-22"><a href="#2024-06-24-中午-14-22" class="headerlink" title="2024-06-24 中午 14:22"></a>2024-06-24 中午 14:22</h2><p>学习材料：<br><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/jn7oraFlhRkOmiv3rh74WA">https://mp.weixin.qq.com/s/jn7oraFlhRkOmiv3rh74WA</a>  <br /><br>进度：p10-p19</p>
+<h3 id="一、java的基本语法"><a href="#一、java的基本语法" class="headerlink" title="一、java的基本语法"></a>一、java的基本语法</h3><h4 id="1-数据类型"><a href="#1-数据类型" class="headerlink" title="1.数据类型"></a>1.数据类型</h4><p><br />四类八种。四类包括：整数型、浮点型、字符型、布尔型。<br /></p>
+<ul>
+<li><p>整数型：<br>byte就是字节,1byte&#x3D;8bits,byte默认值是0.<br /><br>short占用两个字节,16bits,默认0.<br /><br>int占用4个字节,32bits,默认0.<br /><br>long占用8个字节,64bits,默认0L.<br /></p>
+</li>
+<li><p>浮点型：<br>float单精度浮点型,占用32bit,默认0.0f.<br /><br>double双精度浮点型,占用64bit,默认0.0d.<br /></p>
+</li>
+<li><p>字符型：<br>char是单一16位的unicode字符.<br /></p>
+</li>
+<li><p>布尔型：<br>boolean-true or false.<br /></p>
+</li>
+</ul>
+<h4 id="2-基础语法"><a href="#2-基础语法" class="headerlink" title="2.基础语法"></a>2.基础语法</h4><ul>
+<li>大小写敏感</li>
+<li>类名首字母大写</li>
+<li>包名尽量全小写</li>
+<li>方法名首字母小写后驼峰</li>
+</ul>
+<h4 id="3-运算符"><a href="#3-运算符" class="headerlink" title="3.运算符"></a>3.运算符</h4><ul>
+<li>赋值运算符：用&#x3D;表示，把右边的值赋值给左边，右边可以是常熟、变量或表达式，左边必须是明确的已声明的变量。</li>
+<li>算数运算符：+-*&#x2F;%，注意优先级即可。</li>
+<li>自增、自减运算符 ++a,a++</li>
+<li>比较运算符</li>
+<li>逻辑运算符：&amp;&amp;、||、!、&amp;、|、^</li>
+<li>换位运算符</li>
+<li>移位运算符：&gt;&gt;、&lt;&lt;</li>
+<li>三元运算符</li>
+</ul>
+<h3 id="二、java的控制流程"><a href="#二、java的控制流程" class="headerlink" title="二、java的控制流程"></a>二、java的控制流程</h3><ul>
+<li>if条件语句：if(a&gt;10){return true;}return false;</li>
+<li>if…else条件语句：if(a&gt;&#x3D;b){System.out.println(“a&gt;&#x3D;b”);}else{System.out.println(“a&lt;b”);}</li>
+<li>if…elseif条件语句</li>
+<li>switch多分枝语句：注意switch、case、default、break的写法</li>
+<li>while循环语句：while(布尔值){表达式}</li>
+<li>do…while循环：do{system.out.println(“b &#x3D;&#x3D; “+b);b–;} while(b &#x3D;&#x3D; 1)</li>
+<li>for循环：for(初始化;布尔表达式;步进){}</li>
+<li>for-each语句：for(int arr:array){System.out.println(arr);}</li>
+<li>跳转语句 break continue return</li>
+</ul>
+<h3 id="三、面向对象"><a href="#三、面向对象" class="headerlink" title="三、面向对象"></a>三、面向对象</h3><p>面向对象的特性：</p>
+<ul>
+<li>常见思想，符合思考习惯</li>
+<li>业务逻辑简单化，增强代码复用性</li>
+<li>具有抽象、封装、继承、多态等特性</li>
+</ul>
+<p>什么是类？</p>
+<ul>
+<li>是对一系列对象的抽象，大多数面向对象语言都使用class定义类，一般地我们定义类如下L: class ClassName{&#x2F;&#x2F;body;}  , 然后我们使用new来创建这个对象。</li>
+</ul>
+<p>什么是属性和方法？</p>
+<ul>
+<li>类的一个最基本要素就是有属性和方法。一般地，我们如下定义： class A{int a; Apple apple; } ，另外类中还包含方法。方法的基本组成包括方法名称、参数、返回值、方法体，我们可以看到发放如下：public int getResult(){&#x2F;&#x2F;…; return 1;}</li>
+</ul>
+<p>什么是构造方法？</p>
+<ul>
+<li>构造方法是一种特殊的方法，也被称为构造函数或者是构造器，java中通过提供这个构造器来确保每个对象都被初始化，构造放啊只能在对象创建时期被调用一次。他是一个特殊的方法，没有参数类型和返回值，它的方法名要与类名一致，并且构造器可以有多个。如：class{int sum;String color  public Apple(){};public Apple(int sum){} public Apple(String color){} public Apple(int sum,String color){}} , 另外构造器还展示了java多态的特性。</li>
+<li>如果类中没有定义任何构造器，那么jvm会为你自动生成一个构造方法</li>
+<li>需要注意的是，即使jvm会为你默认添加无参的构造器，但是如果你手动定义了任何一个构造方法，jvmm就不会再为你提供默认的构造器，你必须手动指定，否则会编译错误</li>
+</ul>
+<h2 id="2024-06-24-晚-19-39-closed"><a href="#2024-06-24-晚-19-39-closed" class="headerlink" title="2024-06-24 晚 19:39 closed"></a>2024-06-24 晚 19:39 closed</h2>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2024/06/24/java-%E5%9F%BA%E7%A1%80%E6%A0%B8%E5%BF%83%E6%80%BB%E7%BB%93-1/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-机器学习-吴恩达系列教程学习笔记-p15-p19" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -183,7 +315,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="机器学习-吴恩达系列教程学习笔记-p15-p19"><a href="#机器学习-吴恩达系列教程学习笔记-p15-p19" class="headerlink" title="机器学习-吴恩达系列教程学习笔记-p15-p19"></a>机器学习-吴恩达系列教程学习笔记-p15-p19</h1><h2 id="2024-06-24-中午-12-34"><a href="#2024-06-24-中午-12-34" class="headerlink" title="2024-06-24 中午 12:34"></a>2024-06-24 中午 12:34</h2><h3 id="一、矩阵乘法"><a href="#一、矩阵乘法" class="headerlink" title="一、矩阵乘法"></a>一、矩阵乘法</h3><p>A(m*n) x B(n*o) &#x3D; C(m*o) <br /><br>请注意A的列数n必须等于B的行数n <br /><br>在计算时整体思想是把第二个矩阵B拆分成多个向量vector，逐一与A相乘。 <br /></p>
+        <h1 id="机器学习-吴恩达系列教程学习笔记-p15-p19"><a href="#机器学习-吴恩达系列教程学习笔记-p15-p19" class="headerlink" title="机器学习-吴恩达系列教程学习笔记-p15-p19"></a>机器学习-吴恩达系列教程学习笔记-p15-p19</h1><h2 id="2024-06-24-中午-12-34"><a href="#2024-06-24-中午-12-34" class="headerlink" title="2024-06-24 中午 12:34"></a>2024-06-24 中午 12:34</h2><p>学习材料：<br><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV164411b7dx?p=19&spm_id_from=pageDriver&vd_source=754c1b7c1f7ebc1037f0d06a92135dcc">https://www.bilibili.com/video/BV164411b7dx?p=19&amp;spm_id_from=pageDriver&amp;vd_source=754c1b7c1f7ebc1037f0d06a92135dcc</a> <br /><br>进度：p15-p19</p>
+<h3 id="一、矩阵乘法"><a href="#一、矩阵乘法" class="headerlink" title="一、矩阵乘法"></a>一、矩阵乘法</h3><p>A(m*n) x B(n*o) &#x3D; C(m*o) <br /><br>请注意A的列数n必须等于B的行数n <br /><br>在计算时整体思想是把第二个矩阵B拆分成多个向量vector，逐一与A相乘。 <br /></p>
 <p>如图所示，矩阵乘法可以在我们给出假设的h(x)算法时，用来同时计算多组预测结果。<br><img src="/./img/2024-06-22-%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0p15-1.png" alt="图片1"><br><img src="https://i.imgur.com/eaOyVmC.png" alt="avatar"><br>技巧一是把h(x)的系数看成是一个向量，把多个向量拼接构成一个矩阵。技巧二是把样本x看成一个(1,x)矩阵，将多个矩阵拼接构成一个大矩阵。</p>
 <h3 id="二、矩阵乘法特征"><a href="#二、矩阵乘法特征" class="headerlink" title="二、矩阵乘法特征"></a>二、矩阵乘法特征</h3><ol>
 <li>矩阵不满足交换律(commutative) : A X B !&#x3D; B X A</li>
@@ -275,7 +408,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="机器学习-吴恩达系列教程学习笔记-p10-p14"><a href="#机器学习-吴恩达系列教程学习笔记-p10-p14" class="headerlink" title="机器学习-吴恩达系列教程学习笔记-p10-p14"></a>机器学习-吴恩达系列教程学习笔记-p10-p14</h1><h2 id="2024-06-22-下午-17-25"><a href="#2024-06-22-下午-17-25" class="headerlink" title="2024-06-22 下午 17:25"></a>2024-06-22 下午 17:25</h2><h3 id="一、梯度下降算法解析"><a href="#一、梯度下降算法解析" class="headerlink" title="一、梯度下降算法解析"></a>一、梯度下降算法解析</h3><p>梯度下降算法：the gradient descent algorithm</p>
+        <h1 id="机器学习-吴恩达系列教程学习笔记-p10-p14"><a href="#机器学习-吴恩达系列教程学习笔记-p10-p14" class="headerlink" title="机器学习-吴恩达系列教程学习笔记-p10-p14"></a>机器学习-吴恩达系列教程学习笔记-p10-p14</h1><h2 id="2024-06-22-下午-17-25"><a href="#2024-06-22-下午-17-25" class="headerlink" title="2024-06-22 下午 17:25"></a>2024-06-22 下午 17:25</h2><p>学习材料：<br><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV164411b7dx?p=19&spm_id_from=pageDriver&vd_source=754c1b7c1f7ebc1037f0d06a92135dcc">https://www.bilibili.com/video/BV164411b7dx?p=19&amp;spm_id_from=pageDriver&amp;vd_source=754c1b7c1f7ebc1037f0d06a92135dcc</a> <br /><br>进度：p10-p14</p>
+<h3 id="一、梯度下降算法解析"><a href="#一、梯度下降算法解析" class="headerlink" title="一、梯度下降算法解析"></a>一、梯度下降算法解析</h3><p>梯度下降算法：the gradient descent algorithm</p>
 <p>还是一样，先列出算法公式如下：<br /><br>$\theta_j$:&#x3D;$\theta_j$-$\alpha$ $\frac{\partial }{\partial \theta_j}$ J($\theta_0$,$\theta_1$) <br /></p>
 <p>$\alpha$ : learning rate 学习速率 <br /><br>$\frac{\partial }{\partial \theta_j}$ : derivative term 导数项 <br /></p>
 <p>首先简化问题，我们有限考虑仅有一个$\theta$ 的情况，在只有一个变量一维图形下可以直观感受公式的含义。我们可以看到图中导数项实际是站在该位置点做二次函数这一点的切线的斜率。因此当我们站在最低点右侧时，这个导数项是正数(因为切线切斜率为正)，那么对$\theta$ 赋值就等于 $\theta$ - 正数，相当于往左侧移动；当我们站在最低点左侧时，这个导数项是负数，那么对$\theta$ 赋值就等于 $\theta$ - 负数，相当于往右侧移动。这意味着这个公式会让我们无论处在哪个位置都会向最低点走一小步。这说明了在一个变量情况下这个公式是可靠的，它会一点点让我们走向代价函数的最低点。<br><img src="/./img/2024-06-22-%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0p10-1.png" alt="图片1"><br><img src="https://i.imgur.com/J5qXgI8.png" alt="avatar"><br>然后，我们考虑$\alpha$ 在这个公式中的影响，首先可以假设它的值很小时，那意味着每一次我们的直走很小一段下山的路，这样很慢才能找到最低点。而如果这个值很大时，那就有可能在下山时因为步长过大错过最低点。这种一次次越过最低点的专业术语称为发散。取值过小和过大这显然都不是我们希望看到的，我们希望它能最终收敛，并且这一过程尽量快。</p>
@@ -374,7 +508,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="java-基础核心总结-1-9"><a href="#java-基础核心总结-1-9" class="headerlink" title="java - 基础核心总结 - 1~9"></a>java - 基础核心总结 - 1~9</h1><h2 id="2024-06-22-下午-13：10"><a href="#2024-06-22-下午-13：10" class="headerlink" title="2024-06-22 下午 13：10"></a>2024-06-22 下午 13：10</h2><p>学习材料：<br><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/jn7oraFlhRkOmiv3rh74WA">https://mp.weixin.qq.com/s/jn7oraFlhRkOmiv3rh74WA</a></p>
+        <h1 id="java-基础核心总结-1-9"><a href="#java-基础核心总结-1-9" class="headerlink" title="java - 基础核心总结 - 1~9"></a>java - 基础核心总结 - 1~9</h1><h2 id="2024-06-22-下午-13：10"><a href="#2024-06-22-下午-13：10" class="headerlink" title="2024-06-22 下午 13：10"></a>2024-06-22 下午 13：10</h2><p>学习材料：<br><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/jn7oraFlhRkOmiv3rh74WA">https://mp.weixin.qq.com/s/jn7oraFlhRkOmiv3rh74WA</a> <br /><br>进度：p1-p9</p>
 <h3 id="一、为什么会有这个系列？"><a href="#一、为什么会有这个系列？" class="headerlink" title="一、为什么会有这个系列？"></a>一、为什么会有这个系列？</h3><p>其实一直没有非常系统的做过java学习，看了codesheep的知识导图发现有许多东西曾经拉下了，本人也非科班出身，但也已经从事相关行业工作五年，有时候当生产问题发生难以解决时往往会书到用时方恨少，我觉得是时候回炉重造了。就像大佬说的，慢一点才能更快。</p>
 <h3 id="二、什么是java？"><a href="#二、什么是java？" class="headerlink" title="二、什么是java？"></a>二、什么是java？</h3><p>Java是一种编程语言和计算平台。快速、安全、可靠。共有以下三个版本：<br /><br>JavaSE(J2SE)(Java2 Platform Standard Edition 平台标准版) <br /><br>JavaEE(J2EE)(Java2 Platform,Enterprise Edition 平台企业版) <br /><br>JavaME(J2ME)(Java2 Platform Micro Edition 平台微型版) <br /></p>
 <h3 id="三、java的特点"><a href="#三、java的特点" class="headerlink" title="三、java的特点"></a>三、java的特点</h3><h4 id="1-面向对象"><a href="#1-面向对象" class="headerlink" title="1. 面向对象"></a>1. 面向对象</h4><p>面向对象是一种软件开发思想。对现实世界的抽象，面向对象会把相关的数据和方法组织成一个整体来看待。与之对应的，还有一种软件开发思想叫面向过程，是一种以过程为核心的编程思想。</p>
@@ -469,7 +603,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="机器学习-吴恩达系列教程学习笔记-p5到p9"><a href="#机器学习-吴恩达系列教程学习笔记-p5到p9" class="headerlink" title="机器学习-吴恩达系列教程学习笔记-p5到p9"></a>机器学习-吴恩达系列教程学习笔记-p5到p9</h1><h2 id="2024-06-21-晚-18：20"><a href="#2024-06-21-晚-18：20" class="headerlink" title="2024-06-21 晚 18：20"></a>2024-06-21 晚 18：20</h2><p>视频链接：<br><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV164411b7dx?p=5&vd_source=754c1b7c1f7ebc1037f0d06a92135dcc">https://www.bilibili.com/video/BV164411b7dx?p=5&amp;vd_source=754c1b7c1f7ebc1037f0d06a92135dcc</a></p>
+        <h1 id="机器学习-吴恩达系列教程学习笔记-p5到p9"><a href="#机器学习-吴恩达系列教程学习笔记-p5到p9" class="headerlink" title="机器学习-吴恩达系列教程学习笔记-p5到p9"></a>机器学习-吴恩达系列教程学习笔记-p5到p9</h1><h2 id="2024-06-21-晚-18：20"><a href="#2024-06-21-晚-18：20" class="headerlink" title="2024-06-21 晚 18：20"></a>2024-06-21 晚 18：20</h2><p>视频链接：<br><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV164411b7dx?p=5&vd_source=754c1b7c1f7ebc1037f0d06a92135dcc">https://www.bilibili.com/video/BV164411b7dx?p=5&amp;vd_source=754c1b7c1f7ebc1037f0d06a92135dcc</a> <br /><br>进度：p5-p9</p>
 <h3 id="一、模型描述"><a href="#一、模型描述" class="headerlink" title="一、模型描述"></a>一、模型描述</h3><p>以回归regression为例，举了一种特殊的模型,一元线性回归<br><img src="/./img/2024-06-21-%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0p5-1.png" alt="图片alt"><br><img src="https://i.imgur.com/OO9kt2A.png" alt="avatar"></p>
 <ol>
 <li>机器学习中算法块约定用h表示，which means <em>hypothesis函数</em>的意思。</li>
@@ -569,7 +703,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="机器学习-吴恩达系列学习笔记-p1到p4"><a href="#机器学习-吴恩达系列学习笔记-p1到p4" class="headerlink" title="机器学习-吴恩达系列学习笔记-p1到p4"></a>机器学习-吴恩达系列学习笔记-p1到p4</h1><h3 id="2024-06-20-晚-20：52"><a href="#2024-06-20-晚-20：52" class="headerlink" title="2024-06-20 晚 20：52"></a>2024-06-20 晚 20：52</h3><p>视频链接：<br><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV164411b7dx/?p=4&spm_id_from=pageDriver&vd_source=754c1b7c1f7ebc1037f0d06a92135dcc">https://www.bilibili.com/video/BV164411b7dx/?p=4&amp;spm_id_from=pageDriver&amp;vd_source=754c1b7c1f7ebc1037f0d06a92135dcc</a></p>
+        <h1 id="机器学习-吴恩达系列学习笔记-p1到p4"><a href="#机器学习-吴恩达系列学习笔记-p1到p4" class="headerlink" title="机器学习-吴恩达系列学习笔记-p1到p4"></a>机器学习-吴恩达系列学习笔记-p1到p4</h1><h3 id="2024-06-20-晚-20：52"><a href="#2024-06-20-晚-20：52" class="headerlink" title="2024-06-20 晚 20：52"></a>2024-06-20 晚 20：52</h3><p>视频链接：<br><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV164411b7dx/?p=4&spm_id_from=pageDriver&vd_source=754c1b7c1f7ebc1037f0d06a92135dcc">https://www.bilibili.com/video/BV164411b7dx/?p=4&amp;spm_id_from=pageDriver&amp;vd_source=754c1b7c1f7ebc1037f0d06a92135dcc</a> <br /><br>进度：p1-p4</p>
 <h5 id="一、p1是介绍，以及引导课"><a href="#一、p1是介绍，以及引导课" class="headerlink" title="一、p1是介绍，以及引导课"></a>一、p1是介绍，以及引导课</h5><p>略</p>
 <h5 id="二、p2什么是机器学习"><a href="#二、p2什么是机器学习" class="headerlink" title="二、p2什么是机器学习"></a>二、p2什么是机器学习</h5><p>我的理解：让机器通过已知数据进行学习，像人脑一样通过数据总结经验或者说是算法，来应对或预测可能发生的事情。</p>
 <h5 id="三、监督学习"><a href="#三、监督学习" class="headerlink" title="三、监督学习"></a>三、监督学习</h5><ol>
@@ -1119,15 +1253,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">common tutorial</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">test</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">machine learning</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">common tutorial</a>
               </li>
             
             <div class="clearfix"></div>

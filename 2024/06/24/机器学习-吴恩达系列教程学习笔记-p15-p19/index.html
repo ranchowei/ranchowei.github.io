@@ -8,19 +8,19 @@
   <link rel="dns-prefetch" href="https://ranchowei.github.io">
   <title>机器学习-吴恩达系列教程学习笔记-p15-p19 | ranchowei&#39;s homepage</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="机器学习-吴恩达系列教程学习笔记-p15-p192024-06-24 中午 12:34一、矩阵乘法A(m*n) x B(n*o) &#x3D; C(m*o) 请注意A的列数n必须等于B的行数n 在计算时整体思想是把第二个矩阵B拆分成多个向量vector，逐一与A相乘。  如图所示，矩阵乘法可以在我们给出假设的h(x)算法时，用来同时计算多组预测结果。技巧一是把h(x)的系数看成是一个向量，把多个向">
+  <meta name="description" content="机器学习-吴恩达系列教程学习笔记-p15-p192024-06-24 中午 12:34学习材料：https:&#x2F;&#x2F;www.bilibili.com&#x2F;video&#x2F;BV164411b7dx?p&#x3D;19&amp;spm_id_from&#x3D;pageDriver&amp;vd_source&#x3D;754c1b7c1f7ebc1037f0d06a92135dcc 进度：p15-p19 一、矩阵乘法A(m*n) x B(n">
 <meta property="og:type" content="article">
 <meta property="og:title" content="机器学习-吴恩达系列教程学习笔记-p15-p19">
 <meta property="og:url" content="https://ranchowei.github.io/2024/06/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%90%B4%E6%81%A9%E8%BE%BE%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-p15-p19/index.html">
 <meta property="og:site_name" content="ranchowei&#39;s homepage">
-<meta property="og:description" content="机器学习-吴恩达系列教程学习笔记-p15-p192024-06-24 中午 12:34一、矩阵乘法A(m*n) x B(n*o) &#x3D; C(m*o) 请注意A的列数n必须等于B的行数n 在计算时整体思想是把第二个矩阵B拆分成多个向量vector，逐一与A相乘。  如图所示，矩阵乘法可以在我们给出假设的h(x)算法时，用来同时计算多组预测结果。技巧一是把h(x)的系数看成是一个向量，把多个向">
+<meta property="og:description" content="机器学习-吴恩达系列教程学习笔记-p15-p192024-06-24 中午 12:34学习材料：https:&#x2F;&#x2F;www.bilibili.com&#x2F;video&#x2F;BV164411b7dx?p&#x3D;19&amp;spm_id_from&#x3D;pageDriver&amp;vd_source&#x3D;754c1b7c1f7ebc1037f0d06a92135dcc 进度：p15-p19 一、矩阵乘法A(m*n) x B(n">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://ranchowei.github.io/img/2024-06-22-%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0p15-1.png">
 <meta property="og:image" content="https://i.imgur.com/eaOyVmC.png">
 <meta property="og:image" content="https://ranchowei.github.io/img/2024-06-22-%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0p19-1.png">
 <meta property="og:image" content="https://i.imgur.com/H38OOfE.png">
 <meta property="article:published_time" content="2024-06-24T04:33:01.000Z">
-<meta property="article:modified_time" content="2024-06-24T06:16:46.607Z">
+<meta property="article:modified_time" content="2024-06-24T06:27:23.487Z">
 <meta property="article:author" content="Ranchowei">
 <meta property="article:tag" content="machine learning">
 <meta name="twitter:card" content="summary">
@@ -188,7 +188,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="机器学习-吴恩达系列教程学习笔记-p15-p19"><a href="#机器学习-吴恩达系列教程学习笔记-p15-p19" class="headerlink" title="机器学习-吴恩达系列教程学习笔记-p15-p19"></a>机器学习-吴恩达系列教程学习笔记-p15-p19</h1><h2 id="2024-06-24-中午-12-34"><a href="#2024-06-24-中午-12-34" class="headerlink" title="2024-06-24 中午 12:34"></a>2024-06-24 中午 12:34</h2><h3 id="一、矩阵乘法"><a href="#一、矩阵乘法" class="headerlink" title="一、矩阵乘法"></a>一、矩阵乘法</h3><p>A(m*n) x B(n*o) &#x3D; C(m*o) <br /><br>请注意A的列数n必须等于B的行数n <br /><br>在计算时整体思想是把第二个矩阵B拆分成多个向量vector，逐一与A相乘。 <br /></p>
+        <h1 id="机器学习-吴恩达系列教程学习笔记-p15-p19"><a href="#机器学习-吴恩达系列教程学习笔记-p15-p19" class="headerlink" title="机器学习-吴恩达系列教程学习笔记-p15-p19"></a>机器学习-吴恩达系列教程学习笔记-p15-p19</h1><h2 id="2024-06-24-中午-12-34"><a href="#2024-06-24-中午-12-34" class="headerlink" title="2024-06-24 中午 12:34"></a>2024-06-24 中午 12:34</h2><p>学习材料：<br><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV164411b7dx?p=19&spm_id_from=pageDriver&vd_source=754c1b7c1f7ebc1037f0d06a92135dcc">https://www.bilibili.com/video/BV164411b7dx?p=19&amp;spm_id_from=pageDriver&amp;vd_source=754c1b7c1f7ebc1037f0d06a92135dcc</a> <br /><br>进度：p15-p19</p>
+<h3 id="一、矩阵乘法"><a href="#一、矩阵乘法" class="headerlink" title="一、矩阵乘法"></a>一、矩阵乘法</h3><p>A(m*n) x B(n*o) &#x3D; C(m*o) <br /><br>请注意A的列数n必须等于B的行数n <br /><br>在计算时整体思想是把第二个矩阵B拆分成多个向量vector，逐一与A相乘。 <br /></p>
 <p>如图所示，矩阵乘法可以在我们给出假设的h(x)算法时，用来同时计算多组预测结果。<br><img src="/./img/2024-06-22-%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0p15-1.png" alt="图片1"><br><img src="https://i.imgur.com/eaOyVmC.png" alt="avatar"><br>技巧一是把h(x)的系数看成是一个向量，把多个向量拼接构成一个矩阵。技巧二是把样本x看成一个(1,x)矩阵，将多个矩阵拼接构成一个大矩阵。</p>
 <h3 id="二、矩阵乘法特征"><a href="#二、矩阵乘法特征" class="headerlink" title="二、矩阵乘法特征"></a>二、矩阵乘法特征</h3><ol>
 <li>矩阵不满足交换律(commutative) : A X B !&#x3D; B X A</li>
@@ -310,6 +311,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2024/06/24/java-%E5%9F%BA%E7%A1%80%E6%A0%B8%E5%BF%83%E6%80%BB%E7%BB%93-1/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          java-基础核心总结-1
+        
+      </div>
+    </a>
   
   
     <a href="/2024/06/22/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%90%B4%E6%81%A9%E8%BE%BE%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-p10-p14/" id="article-nav-older" class="article-nav-link-wrap">
@@ -464,15 +474,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">common tutorial</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">test</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">machine learning</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">common tutorial</a>
               </li>
             
             <div class="clearfix"></div>
