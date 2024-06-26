@@ -163,6 +163,120 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-算法与数据结构-左神100天-2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2024/06/26/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%B7%A6%E7%A5%9E100%E5%A4%A9-2/">算法与数据结构-左神100天-2</a>
+    </h1>
+  
+
+        
+        <a href="/2024/06/26/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%B7%A6%E7%A5%9E100%E5%A4%A9-2/" class="archive-article-date">
+  	<time datetime="2024-06-26T04:02:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-06-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="算法与数据结构-左神100天-2"><a href="#算法与数据结构-左神100天-2" class="headerlink" title="算法与数据结构-左神100天-2"></a>算法与数据结构-左神100天-2</h1><h2 id="2024-06-26-中午-12-04"><a href="#2024-06-26-中午-12-04" class="headerlink" title="2024-06-26 中午 12:04"></a>2024-06-26 中午 12:04</h2><p>学习材料：<br><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV13g41157hK?p=3&vd_source=754c1b7c1f7ebc1037f0d06a92135dcc">https://www.bilibili.com/video/BV13g41157hK?p=3&amp;vd_source=754c1b7c1f7ebc1037f0d06a92135dcc</a><br>学习进度：p3 1h 54min处</p>
+<h3 id="一、冒泡排序"><a href="#一、冒泡排序" class="headerlink" title="一、冒泡排序"></a>一、冒泡排序</h3><p>整体思想：i位置与i+1位置的数比较，把小数放左边大数放右边，这样第一次排序过后数组中最大的数会出现在最右侧，以此类推，这样第一轮比较n-1次，第二轮n-2次，第三轮n-3次…</p>
+<p>类似选择排序我们可以得到冒泡排序的时间复杂度也为O($N^2$)：a $N^2$ + b $N$ + c</p>
+<p>空间复杂度也为O(1)</p>
+<p>代码详见：AlgorithmLearning&#x2F;src&#x2F;class01&#x2F;Code02_BubbleSort</p>
+<h3 id="二、抑或运算"><a href="#二、抑或运算" class="headerlink" title="二、抑或运算"></a>二、抑或运算</h3><p>当内存地址不一样，则可以用抑或运算交换两数位置</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">arr[i] = arr[i] ^ arr[j];</span><br><span class="line">arr[j] = arr[i] ^ arr[j];</span><br><span class="line">arr[i] = arr[i] ^ arr[j];</span><br></pre></td></tr></table></figure>
+<p>抑或运算特性：</p>
+<ul>
+<li>相同为1，不同为0</li>
+<li>两数抑或可以理解为无进位相加</li>
+<li>满足交换律和结合率</li>
+<li>0 ^ a &#x3D; a     （0与任意数抑或为这个任意数）</li>
+<li>a ^ a &#x3D; 0     （相同数抑或为0）</li>
+<li>一批数据抑或，先后顺序不会导致结果变化</li>
+<li>抑或运算从无进位相加来看，当位运算时只与1的出现次数有关，出现是奇数次是1，偶数次则为0</li>
+</ul>
+<h3 id="三、插入排序"><a href="#三、插入排序" class="headerlink" title="三、插入排序"></a>三、插入排序</h3><p>整体思想：从0位置开始，考虑从0到i位置的数组，每一次都把末位数逐次和前一位比较，一旦左侧的数比要插入的数据小则停止，这样可以在每一轮都保证过0到i位置的数据是从小到大顺序排列。<br /><br>简单理解：扑克牌摸牌时整理牌序是一样的，假设原始数组i位置就是我们新摸的牌，我们从i-1位置开始比较如果新摸的牌比它小就继续向前比较，一直到找不到更小的就在这里插入，其实就是摸牌时立即整理牌序。<br /></p>
+<p>这里我们回顾下和冒泡排序、以及简单选择排序，复杂度有什么区别，实际上，冒泡排序和简单选择的复杂度是固定的因为它一定得依次进行n,n-1,n-2…,1次比较，即复杂度永久为O($N^2$)。但是插入排序则不同，插入排序和数据状况相关，也就是说跟随数据状况的好坏我们可以得到最好和最坏的时间复杂度。</p>
+<p>插入排序的时间复杂度：最坏时（即本身按照从大到小倒排）O($N^2$)，最好时（即本身已经是按从小到大排序）O(N)，但是时间复杂度我们都是按照最坏情况估计，所以插入排序的时间复杂度为O($N^2$)</p>
+<p>代码详见：AlgorithmLearning&#x2F;src&#x2F;class01&#x2F;Code03_insertionSort</p>
+<h3 id="四、二分法"><a href="#四、二分法" class="headerlink" title="四、二分法"></a>四、二分法</h3><p>首先，抛出一个问题，一个有序的数组怎么最快的找到其中某个数？答案就是二分法</p>
+<p>什么是二分法？先找到数组中正中间的数，看要查找的数与正中间的数谁大，砍半查找。</p>
+<p>时间复杂度是多少？O(${log}_2N$)，因为每一次都除以2，其实就是在算我们要除以2几次可以得到&#x3D;1。不过为了书写方便，我们一般把复杂度记为O(${log}N$)。</p>
+<p>怎么找到一个顺序数组中大于等于”某个数” 最左侧的位置？使用二分法，每一次二分都拿中点的数和”某个数”比较，如果大于等于”某个数”成立，则在左侧继续二分比较，否则在右侧继续二分比较，以此类推，直到二分到仅剩一个数，那个位置就是最左侧的位置。图解如下：<br><img src="/./img/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%B7%A6%E7%A5%9E100%E5%A4%A9-2-1.png" alt="图片1"><br><img src="https://i.imgur.com/hNaWNDk.png" alt="avatar"></p>
+<h3 id="五、二分法-局部最小值问题"><a href="#五、二分法-局部最小值问题" class="headerlink" title="五、二分法-局部最小值问题"></a>五、二分法-局部最小值问题</h3><p>局部最小的定义：</p>
+<ul>
+<li>N-1位置的数&lt;N-2位置的数</li>
+<li>0位置&lt;1位置的数</li>
+<li>i位置同时&lt;i-1位置 以及 i+1位置</li>
+</ul>
+<p>题目：给出一个无序数组，数组中任何两个相邻的数不相等，求任意一个局部最小的位置，要求时间复杂度小于O($N$)</p>
+<p>求解思路：先判断头尾，如果是局部最小返回，如果不是说明头部是向下趋势，尾部是向上趋势，整体呈碗状，那么在中间位置必有局部最小，开始二分，把二分的中点看做尾部，如前一步一样如果尾部是局部最小直接返回，如果不是，那么这个新尾部(中点)一定是向上的趋势，又构成新碗状，再次二分，一直二分下去，必会找到局部最小位置。<br><img src="/./img/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%B7%A6%E7%A5%9E100%E5%A4%A9-2-2.png" alt="图片2"><br><img src="https://i.imgur.com/n5R3qU8.png" alt="avatar"><br>时间复杂度可以优化的原因有二：</p>
+<ul>
+<li>数据状况特殊，可以用合适的算法匹配出更优的时间复杂度</li>
+<li>问的问题特殊，给出特定的标准</li>
+</ul>
+<p>什么时候使用二分？</p>
+<ul>
+<li>左边有，右边肯定没有，相互是排斥的，就能使用二分</li>
+</ul>
+<h2 id="2024-06-26-晚-21-57-closed"><a href="#2024-06-26-晚-21-57-closed" class="headerlink" title="2024-06-26 晚 21:57 closed"></a>2024-06-26 晚 21:57 closed</h2>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">algorithm and data structure</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2024/06/26/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%B7%A6%E7%A5%9E100%E5%A4%A9-2/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-机器学习-吴恩达系列教程学习笔记-p20-p24" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -296,13 +410,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="算法与数据结构-左神100天-1"><a href="#算法与数据结构-左神100天-1" class="headerlink" title="算法与数据结构-左神100天-1"></a>算法与数据结构-左神100天-1</h1><h2 id="2024-06-24-晚-21-15"><a href="#2024-06-24-晚-21-15" class="headerlink" title="2024-06-24 晚 21:15"></a>2024-06-24 晚 21:15</h2><p>视频链接：<br><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV13g41157hK?p=3&vd_source=754c1b7c1f7ebc1037f0d06a92135dcc">https://www.bilibili.com/video/BV13g41157hK?p=3&amp;vd_source=754c1b7c1f7ebc1037f0d06a92135dcc</a>  <br /><br>学习进度：p1-p3(25 min处)</p>
+        <h1 id="算法与数据结构-左神100天-1"><a href="#算法与数据结构-左神100天-1" class="headerlink" title="算法与数据结构-左神100天-1"></a>算法与数据结构-左神100天-1</h1><h2 id="2024-06-24-晚-21-15"><a href="#2024-06-24-晚-21-15" class="headerlink" title="2024-06-24 晚 21:15"></a>2024-06-24 晚 21:15</h2><p>视频链接：<br><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV13g41157hK?p=3&vd_source=754c1b7c1f7ebc1037f0d06a92135dcc">https://www.bilibili.com/video/BV13g41157hK?p=3&amp;vd_source=754c1b7c1f7ebc1037f0d06a92135dcc</a>  <code>&lt;br /&gt;</code><br>学习进度：p1-p3(25 min处)</p>
 <h3 id="一、为什么学这个"><a href="#一、为什么学这个" class="headerlink" title="一、为什么学这个"></a>一、为什么学这个</h3><p>最初始箱学的原因是我非科班出身，确实没有系统学习过，但是计算机面试特别是想润的话又经常考算法和数据结构，这个是被动原因。其次，我承认我不想太慢，拉下的有点多，我希望加速，翻了一遍b站，用java讲的也不多，观看排名靠前的就更少了，而且我觉得想要快就要结合真题，先试着啃一下视频，配合刷leetcode算法题。</p>
-<h3 id="二、认识复杂度和简单排序算法"><a href="#二、认识复杂度和简单排序算法" class="headerlink" title="二、认识复杂度和简单排序算法"></a>二、认识复杂度和简单排序算法</h3><p>以简单选择排序为例，简单选择排序是便利每一项，把最小的放到数组的第一个位置。这样的话，我们可以简单得到如下：<br /><br>拿到第i项总计次数：N + N-1 + N-2 + … + 1 <br /><br>比较次数：N + N-1 + N-2 + … + 1 <br /><br>交换swap次数：N <br /><br>那么把上述三项加起来可得： a $N^2$ + b $N$ + c <br /><br>在我们统计算法的复杂度时，因为我们考虑的是通用上限，我们通常忽略低阶项和系数。<br /><br>因此，我们得到简单选择排序的时间复杂度为O($N^2$) <br /></p>
+<h3 id="二、认识复杂度和简单选择排序算法"><a href="#二、认识复杂度和简单选择排序算法" class="headerlink" title="二、认识复杂度和简单选择排序算法"></a>二、认识复杂度和简单选择排序算法</h3><p>以简单选择排序为例，简单选择排序是便利每一项，把最小的放到数组的第一个位置。这样的话，我们可以简单得到如下：<code>&lt;br /&gt;</code><br>拿到第i项总计次数：N + N-1 + N-2 + … + 1 <code>&lt;br /&gt;</code><br>比较次数：N + N-1 + N-2 + … + 1 <code>&lt;br /&gt;</code><br>交换swap次数：N <code>&lt;br /&gt;</code><br>那么把上述三项加起来可得： a $N^2$ + b $N$ + c <code>&lt;br /&gt;</code><br>在我们统计算法的复杂度时，因为我们考虑的是通用上限，我们通常忽略低阶项和系数。<code>&lt;br /&gt;</code><br>因此，我们得到简单选择排序的时间复杂度为O($N^2$) <code>&lt;br /&gt;</code></p>
 <ul>
 <li>问题1：当复杂度相同时，我们怎么判断何种算法哪一个好，这时候就要分析不同数据样本下实际运行时间，也就是“常数项时间”。</li>
 </ul>
-<p>那么什么是空间复杂度呢？<br /><br>其实也很简单，就是这个算法额外还需要多少空间，以简单排序算法为例，它需要O(1)的空间复杂度，因为这个算法的思想本质就是提供一个变量去承载遍历过程中最小的值。</p>
+<p>那么什么是空间复杂度呢？<code>&lt;br /&gt;</code><br>其实也很简单，就是这个算法额外还需要多少空间，以简单排序算法为例，它需要O(1)的空间复杂度，因为这个算法的思想本质就是提供一个变量去承载遍历过程中最小的值。</p>
 <p>算法实现详见：<br>AlgorithmLearning&#x2F;class01&#x2F;Code01_SelectionSort</p>
 <h2 id="2024-06-25-晚-22-00-closed"><a href="#2024-06-25-晚-22-00-closed" class="headerlink" title="2024-06-25 晚 22:00 closed"></a>2024-06-25 晚 22:00 closed</h2>
       
@@ -1129,53 +1243,6 @@
 
 
   
-    <article id="post-deeplearning.ai-chatgpt提示工程开发者学习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2024/06/21/deeplearning.ai-chatgpt%E6%8F%90%E7%A4%BA%E5%B7%A5%E7%A8%8B%E5%BC%80%E5%8F%91%E8%80%85%E5%AD%A6%E4%B9%A0/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1294,7 +1361,7 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">test</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1302,7 +1369,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color5">test</a>
               </li>
              
               <li class="article-tag-list-item">
