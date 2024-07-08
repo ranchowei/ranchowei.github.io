@@ -163,6 +163,553 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-机器学习-吴恩达系列教程学习笔记-p10-p14" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2024/06/22/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%90%B4%E6%81%A9%E8%BE%BE%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-p10-p14/">机器学习-吴恩达系列教程学习笔记-p10-p14</a>
+    </h1>
+  
+
+        
+        <a href="/2024/06/22/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%90%B4%E6%81%A9%E8%BE%BE%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-p10-p14/" class="archive-article-date">
+  	<time datetime="2024-06-22T09:24:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-06-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="机器学习-吴恩达系列教程学习笔记-p10-p14"><a href="#机器学习-吴恩达系列教程学习笔记-p10-p14" class="headerlink" title="机器学习-吴恩达系列教程学习笔记-p10-p14"></a>机器学习-吴恩达系列教程学习笔记-p10-p14</h1><h2 id="2024-06-22-下午-17-25"><a href="#2024-06-22-下午-17-25" class="headerlink" title="2024-06-22 下午 17:25"></a>2024-06-22 下午 17:25</h2><p>学习材料：<br><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV164411b7dx?p=19&spm_id_from=pageDriver&vd_source=754c1b7c1f7ebc1037f0d06a92135dcc">https://www.bilibili.com/video/BV164411b7dx?p=19&amp;spm_id_from=pageDriver&amp;vd_source=754c1b7c1f7ebc1037f0d06a92135dcc</a> <br /><br>进度：p10-p14</p>
+<h3 id="一、梯度下降算法解析"><a href="#一、梯度下降算法解析" class="headerlink" title="一、梯度下降算法解析"></a>一、梯度下降算法解析</h3><p>梯度下降算法：the gradient descent algorithm</p>
+<p>还是一样，先列出算法公式如下：<br /><br>$\theta_j$:&#x3D;$\theta_j$-$\alpha$ $\frac{\partial }{\partial \theta_j}$ J($\theta_0$,$\theta_1$) <br /></p>
+<p>$\alpha$ : learning rate 学习速率 <br /><br>$\frac{\partial }{\partial \theta_j}$ : derivative term 导数项 <br /></p>
+<p>首先简化问题，我们有限考虑仅有一个$\theta$ 的情况，在只有一个变量一维图形下可以直观感受公式的含义。我们可以看到图中导数项实际是站在该位置点做二次函数这一点的切线的斜率。因此当我们站在最低点右侧时，这个导数项是正数(因为切线切斜率为正)，那么对$\theta$ 赋值就等于 $\theta$ - 正数，相当于往左侧移动；当我们站在最低点左侧时，这个导数项是负数，那么对$\theta$ 赋值就等于 $\theta$ - 负数，相当于往右侧移动。这意味着这个公式会让我们无论处在哪个位置都会向最低点走一小步。这说明了在一个变量情况下这个公式是可靠的，它会一点点让我们走向代价函数的最低点。<br><img src="/./img/2024-06-22-%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0p10-1.png" alt="图片1"><br><img src="https://i.imgur.com/J5qXgI8.png" alt="avatar"><br>然后，我们考虑$\alpha$ 在这个公式中的影响，首先可以假设它的值很小时，那意味着每一次我们的直走很小一段下山的路，这样很慢才能找到最低点。而如果这个值很大时，那就有可能在下山时因为步长过大错过最低点。这种一次次越过最低点的专业术语称为发散。取值过小和过大这显然都不是我们希望看到的，我们希望它能最终收敛，并且这一过程尽量快。</p>
+<p>为了不错过这个最低点，我们是否有必要将$\alpha$ 的值随着接近最低点而设置的越来越小呢？答案是其实没有必要。因为随着接近最低点，求导项即斜率会逐渐趋近于0，这也意味着，它会主动变慢下降的速度。</p>
+<p>吴老师原话：As we approach a local minimum,gradient descent will automatically take smaller steps.So,no need to decrease $\alpha$ over time.</p>
+<p>这就是梯度下降的含义，这个求导项会随着离最低点越来越近而每次下降的速度越来越小。</p>
+<h3 id="二、线性回归算法"><a href="#二、线性回归算法" class="headerlink" title="二、线性回归算法"></a>二、线性回归算法</h3><ol>
+<li><p>线性回归算法是怎么计算出来的？<br>结合代价函数和梯度算法，我们就得到了线性回归算法。</p>
+</li>
+<li><p>求解过程：<br><img src="/./img/2024-06-22-%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0p11-1.png" alt="图片2"><br><img src="https://i.imgur.com/YemOytT.png" alt="avatar"><br>线性回归的代价函数总是一个弓状函数(bow-shaped function)，专业术语叫凸函数(convex function)</p>
+</li>
+<li><p>什么是batch梯度下降？<br>Batch: each step of gradient descent uses all the training examples.<br>指的是每一次梯度下降算法都需要遍历整个训练集的样本。</p>
+</li>
+</ol>
+<h3 id="三、复习矩阵和向量"><a href="#三、复习矩阵和向量" class="headerlink" title="三、复习矩阵和向量"></a>三、复习矩阵和向量</h3><p>矩阵(matix)：rectangular array of numbers由数字组成的矩阵阵列。它是一种二维数组</p>
+<p>矩阵的维度(dimension of matrix): number of rows x number of column.矩阵的行数乘以列数，如4行3列的矩阵我们记作 4x2 matrix</p>
+<p>矩阵的元素(matrix elements): $A_ij$, 指的是第i行第j列的元素。</p>
+<p>向量(vector): an n x 1 matrix, 指的是n行1列的矩阵。</p>
+<p>向量的元素(vector elements): $y_i$ ,指第i个元素。</p>
+<p>通常我们用小写字母表示向量，用大写字母表示矩阵。</p>
+<h3 id="四、复习矩阵加法和标量乘法"><a href="#四、复习矩阵加法和标量乘法" class="headerlink" title="四、复习矩阵加法和标量乘法"></a>四、复习矩阵加法和标量乘法</h3><p>matrix addition(矩阵加法)：对应位置相加。并且加法计算必须是同纬度，不同维度则是error。</p>
+<p>scalar multiplication(标量乘法): 所有位置乘以标量。</p>
+<h3 id="五、复习矩阵乘法"><a href="#五、复习矩阵乘法" class="headerlink" title="五、复习矩阵乘法"></a>五、复习矩阵乘法</h3><p>大学知识，简单列出。</p>
+<p>R(3x2) * R(2x1) &#x3D; R(3x1)</p>
+<p>结果第i行第i列&#x3D;第i行乘以第i列。</p>
+<h2 id="2024-06-23-晚-23-05-closed"><a href="#2024-06-23-晚-23-05-closed" class="headerlink" title="2024-06-23 晚 23:05 closed"></a>2024-06-23 晚 23:05 closed</h2>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">machine learning</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2024/06/22/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%90%B4%E6%81%A9%E8%BE%BE%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-p10-p14/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-java-基础核心总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2024/06/22/java-%E5%9F%BA%E7%A1%80%E6%A0%B8%E5%BF%83%E6%80%BB%E7%BB%93/">java - 基础核心总结</a>
+    </h1>
+  
+
+        
+        <a href="/2024/06/22/java-%E5%9F%BA%E7%A1%80%E6%A0%B8%E5%BF%83%E6%80%BB%E7%BB%93/" class="archive-article-date">
+  	<time datetime="2024-06-22T05:09:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-06-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="java-基础核心总结-1-9"><a href="#java-基础核心总结-1-9" class="headerlink" title="java - 基础核心总结 - 1~9"></a>java - 基础核心总结 - 1~9</h1><h2 id="2024-06-22-下午-13：10"><a href="#2024-06-22-下午-13：10" class="headerlink" title="2024-06-22 下午 13：10"></a>2024-06-22 下午 13：10</h2><p>学习材料：<br><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/jn7oraFlhRkOmiv3rh74WA">https://mp.weixin.qq.com/s/jn7oraFlhRkOmiv3rh74WA</a> <br /><br>进度：p1-p9</p>
+<h3 id="一、为什么会有这个系列？"><a href="#一、为什么会有这个系列？" class="headerlink" title="一、为什么会有这个系列？"></a>一、为什么会有这个系列？</h3><p>其实一直没有非常系统的做过java学习，看了codesheep的知识导图发现有许多东西曾经拉下了，本人也非科班出身，但也已经从事相关行业工作五年，有时候当生产问题发生难以解决时往往会书到用时方恨少，我觉得是时候回炉重造了。就像大佬说的，慢一点才能更快。</p>
+<h3 id="二、什么是java？"><a href="#二、什么是java？" class="headerlink" title="二、什么是java？"></a>二、什么是java？</h3><p>Java是一种编程语言和计算平台。快速、安全、可靠。共有以下三个版本：<br /><br>JavaSE(J2SE)(Java2 Platform Standard Edition 平台标准版) <br /><br>JavaEE(J2EE)(Java2 Platform,Enterprise Edition 平台企业版) <br /><br>JavaME(J2ME)(Java2 Platform Micro Edition 平台微型版) <br /></p>
+<h3 id="三、java的特点"><a href="#三、java的特点" class="headerlink" title="三、java的特点"></a>三、java的特点</h3><h4 id="1-面向对象"><a href="#1-面向对象" class="headerlink" title="1. 面向对象"></a>1. 面向对象</h4><p>面向对象是一种软件开发思想。对现实世界的抽象，面向对象会把相关的数据和方法组织成一个整体来看待。与之对应的，还有一种软件开发思想叫面向过程，是一种以过程为核心的编程思想。</p>
+<h4 id="2-java的典型特征"><a href="#2-java的典型特征" class="headerlink" title="2. java的典型特征"></a>2. java的典型特征</h4><ul>
+<li>无需手动管理对象的生命周期</li>
+<li>强大且易用，在企业级开发中被广泛运用</li>
+<li>静态语言，指在编译时就能检查类型的正确性（作为对比，动态语言如python运行时确定变量的类型）</li>
+<li>执行效率高、速度快</li>
+</ul>
+<h4 id="3-平台独立性和可移植性"><a href="#3-平台独立性和可移植性" class="headerlink" title="3. 平台独立性和可移植性"></a>3. 平台独立性和可移植性</h4><ul>
+<li>write once,run anywhere.<br /><br>做到这一点的核心是JVM，java是跨平台的，已编译的java程序可以在任何带有JVM的平台上运行。这是怎么实现的呢？你用java的编辑器如eclipse、或者javac把java代码编译为.class文件，然后把.class文件打包成.jar文件，这个jar包就能够在windows、macos、linux系统下运行。不同的操作系统有不同的JVM实现，这样切换平台时，不需要再次编译你的java代码。</li>
+</ul>
+<h4 id="4-java的多线程"><a href="#4-java的多线程" class="headerlink" title="4. java的多线程"></a>4. java的多线程</h4><h4 id="5-java的高性能"><a href="#5-java的高性能" class="headerlink" title="5. java的高性能"></a>5. java的高性能</h4><p>一般地，我们编写的代码，会经过javac编译为字节码(bytecode)，后再经过jvm内嵌解释器将字节码转换为机器码。然而部分jvm的实现比如hotspot jvm提供JIT(Just-In-Time)编译器，这种动态编译器能够在运行时将热点代码编译为机器码。</p>
+<h4 id="6-java的健壮性"><a href="#6-java的健壮性" class="headerlink" title="6. java的健壮性"></a>6. java的健壮性</h4><ul>
+<li>强类型机制</li>
+<li>异常处理</li>
+<li>垃圾自动收集</li>
+</ul>
+<h4 id="7-java容易开发分布式项目"><a href="#7-java容易开发分布式项目" class="headerlink" title="7. java容易开发分布式项目"></a>7. java容易开发分布式项目</h4><p>java中有net api，提供网络应用编程类库，包括URL、URLConnection、socket、ServerSocker等。java的RMI(远程方法激活)也是开发分布式应用的手段。</p>
+<h3 id="四、什么叫java开发环境JDK"><a href="#四、什么叫java开发环境JDK" class="headerlink" title="四、什么叫java开发环境JDK"></a>四、什么叫java开发环境JDK</h3><p>JDK(java development kit)时java开发工具箱，它是java的核心，包括了java运行环境JRE(java runtime environment)、一些java工具和java的核心类库(Java API)。</p>
+<h3 id="五、什么叫java运行时环境JRE"><a href="#五、什么叫java运行时环境JRE" class="headerlink" title="五、什么叫java运行时环境JRE"></a>五、什么叫java运行时环境JRE</h3><p>jre是一个运行环境，jdk是开发环境。但是jdk包里含有jre，可以正常运行java程序，但是jdk本身包含许多与运行无关的内容，占用空间较大，因此运行普通的java程序无须安装jdk，仅安装jre。</p>
+<h2 id="额，中间打瞌睡了。。"><a href="#额，中间打瞌睡了。。" class="headerlink" title="额，中间打瞌睡了。。"></a>额，中间打瞌睡了。。</h2><h2 id="2024-06-22-下午-16-17-closed"><a href="#2024-06-22-下午-16-17-closed" class="headerlink" title="2024-06-22 下午 16:17 closed"></a>2024-06-22 下午 16:17 closed</h2>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2024/06/22/java-%E5%9F%BA%E7%A1%80%E6%A0%B8%E5%BF%83%E6%80%BB%E7%BB%93/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-机器学习-吴恩达系列教程学习笔记-p5-p9" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2024/06/21/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%90%B4%E6%81%A9%E8%BE%BE%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-p5-p9/">机器学习-吴恩达系列教程学习笔记-p5-p9</a>
+    </h1>
+  
+
+        
+        <a href="/2024/06/21/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%90%B4%E6%81%A9%E8%BE%BE%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-p5-p9/" class="archive-article-date">
+  	<time datetime="2024-06-21T12:52:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-06-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="机器学习-吴恩达系列教程学习笔记-p5到p9"><a href="#机器学习-吴恩达系列教程学习笔记-p5到p9" class="headerlink" title="机器学习-吴恩达系列教程学习笔记-p5到p9"></a>机器学习-吴恩达系列教程学习笔记-p5到p9</h1><h2 id="2024-06-21-晚-18：20"><a href="#2024-06-21-晚-18：20" class="headerlink" title="2024-06-21 晚 18：20"></a>2024-06-21 晚 18：20</h2><p>视频链接：<br><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV164411b7dx?p=5&vd_source=754c1b7c1f7ebc1037f0d06a92135dcc">https://www.bilibili.com/video/BV164411b7dx?p=5&amp;vd_source=754c1b7c1f7ebc1037f0d06a92135dcc</a> <br /><br>进度：p5-p9</p>
+<h3 id="一、模型描述"><a href="#一、模型描述" class="headerlink" title="一、模型描述"></a>一、模型描述</h3><p>以回归regression为例，举了一种特殊的模型,一元线性回归<br><img src="/./img/2024-06-21-%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0p5-1.png" alt="图片alt"><br><img src="https://i.imgur.com/OO9kt2A.png" alt="avatar"></p>
+<ol>
+<li>机器学习中算法块约定用h表示，which means <em>hypothesis函数</em>的意思。</li>
+<li>所以根据上图我们给出一个模型：h(x)&#x3D;$\theta_0$+$\theta_1$*x。</li>
+<li>习惯上我们用x表示input，用y表示output，用M表示<em>样本容量</em>，即训练集多少组(x,y)数据的数量。</li>
+</ol>
+<h3 id="二、代价函数"><a href="#二、代价函数" class="headerlink" title="二、代价函数"></a>二、代价函数</h3><p>定义：把最有可能的直线和我们的数据拟合</p>
+<p>figure out how to fit the best possible straight line to our data in linear.</p>
+<p>我们如何拟合呢，换句话说我们如何准确预测y的值呢？其实标准的定义就是在线性回归中我们要解决的是一个最小化的问题(solve a minimization)。即求预测值和实际值的差的平方误差。</p>
+<p>J($\theta_0,\theta_1$)&#x3D;1&#x2F;2m $\sum_1^m$ (h(x)-y)$^2$</p>
+<p>上面的公式被笼统的称为<em>代价函数(cost function)<em>，精确的讲也叫</em>平方误差代价函数(square error cost function)<em>，当上面的公式求得最小值时，我们就从众多</em>假设函数h(x)<em>找到了</em>(overall objective function)整体目标函数</em>h(x)&#x3D;$\theta_0$+$\theta_1$*x</p>
+<p>通常来说，平方误差代价函数可能时解决回归问题最常用的手段。</p>
+<h3 id="三、代价函数（一）"><a href="#三、代价函数（一）" class="headerlink" title="三、代价函数（一）"></a>三、代价函数（一）</h3><p>考虑一个只有$\theta_1$的目标函数</p>
+<p>h(x)&#x3D;$\theta_1$ x</p>
+<p>给出一个数据集样本：(1,1) (2,2) (3,3)</p>
+<p>当$\theta_1$ &#x3D; 1时，J($\theta_1$)&#x3D;0</p>
+<p>当$\theta_1$ &#x3D; 0.5时,J($\theta_1$)&#x3D;3.5&#x2F;6 $\approx$ 0.58</p>
+<p>当$\theta_1$ &#x3D; 0时,J($\theta_1$)&#x3D;14&#x2F;6 $\approx$ 2.3</p>
+<p>当$\theta_1$ &#x3D; -0.5时,J($\theta_1$) $\approx$ 5.25</p>
+<p><img src="/img/2024-06-21-%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0p7-1.png" alt="图片 alt"><br><img src="https://i.imgur.com/3fg15ZU.png" alt="avatar"></p>
+<p>上图中的J($\theta_1$)就是代价函数，至此我们用一个小例子，感受代价函数长什么样子。</p>
+<h3 id="四、代价函数（二）"><a href="#四、代价函数（二）" class="headerlink" title="四、代价函数（二）"></a>四、代价函数（二）</h3><p>好了，让我们来看看非特殊情况，即$\theta_0$以及$\theta_1$都不为0时，我们给出一组数据，并在三维坐标中plot出J($\theta_1$,$\theta_0$)，可以看到如下图，代价函数在三维中仍然是一个碗状图：<br><img src="/img/2024-06-21-%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0p8-1.png" alt="图片 alt"><br><img src="https://i.imgur.com/jMYmegJ.png" alt="avatar"></p>
+<p>但是这引出了一个新问题，当变量$\theta$越来越多时，我们很难在画出可视化的图形，三维是我们能看到的极限，那么怎么办呢，下一节中将会介绍一种算法去找到可以让代价函数最小的$\theta$。</p>
+<h3 id="五、梯度下降"><a href="#五、梯度下降" class="headerlink" title="五、梯度下降"></a>五、梯度下降</h3><p>梯度下降可以解决n个$\theta$的问题，但为简化问题，我们优先考虑有两个变量的场景。</p>
+<p>梯度下降的算法思想是，想象一下，你身处在一座层峦叠嶂大山中，你想要找到最快下山的路，你会怎么做，梯度下降的做法是在你当前的坐标位置环顾四周，找到下降最多的路径，抵达下一个位置时再如此重复一次，这样循环下去找到去往山底的路，但是有意思的是这个算法如果你选择了不同的开始位置 ，你有可能抵达的重点不同，虽然那个终点可能都是每一个出发点下山最低的位置，专业的说法是这是一个局部最优解(local optimum)</p>
+<p>repeat until convergence重复以下公式直至收敛，注意:&#x3D;代表赋值操作<br /><br>$\theta_j$:&#x3D;$\theta_j$-$\alpha$ $\frac{\partial }{\partial \theta_j}$ J($\theta_0$,$\theta_1$)  for(j&#x3D;0 and j&#x3D;1)<br><br /><br>请特别注意梯度算法是同步更新(simultaneous update)的，具体公式顺序如下:<br /><br>temp0:&#x3D;$\theta_0$-$\alpha$ $\frac{\partial }{\partial \theta_0}$ J($\theta_0$,$\theta_1$)  <br /><br>temp1:&#x3D;$\theta_1$-$\alpha$ $\frac{\partial }{\partial \theta_1}$ J($\theta_0$,$\theta_1$) <br /><br>$\theta_0$ :&#x3D; temp0 <br /><br>$\theta_1$ :&#x3D; temp1 <br /></p>
+<h2 id="2024-06-21-晚-20：20-closed"><a href="#2024-06-21-晚-20：20-closed" class="headerlink" title="2024-06-21 晚 20：20  closed"></a>2024-06-21 晚 20：20  closed</h2>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">machine learning</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2024/06/21/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%90%B4%E6%81%A9%E8%BE%BE%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-p5-p9/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-机器学习-吴恩达系列教程学习笔记-p1-p4" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2024/06/21/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%90%B4%E6%81%A9%E8%BE%BE%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-p1-p4/">机器学习-吴恩达系列教程学习笔记-p1-p4</a>
+    </h1>
+  
+
+        
+        <a href="/2024/06/21/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%90%B4%E6%81%A9%E8%BE%BE%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-p1-p4/" class="archive-article-date">
+  	<time datetime="2024-06-21T12:52:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-06-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="机器学习-吴恩达系列学习笔记-p1到p4"><a href="#机器学习-吴恩达系列学习笔记-p1到p4" class="headerlink" title="机器学习-吴恩达系列学习笔记-p1到p4"></a>机器学习-吴恩达系列学习笔记-p1到p4</h1><h3 id="2024-06-20-晚-20：52"><a href="#2024-06-20-晚-20：52" class="headerlink" title="2024-06-20 晚 20：52"></a>2024-06-20 晚 20：52</h3><p>视频链接：<br><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV164411b7dx/?p=4&spm_id_from=pageDriver&vd_source=754c1b7c1f7ebc1037f0d06a92135dcc">https://www.bilibili.com/video/BV164411b7dx/?p=4&amp;spm_id_from=pageDriver&amp;vd_source=754c1b7c1f7ebc1037f0d06a92135dcc</a> <br /><br>进度：p1-p4</p>
+<h5 id="一、p1是介绍，以及引导课"><a href="#一、p1是介绍，以及引导课" class="headerlink" title="一、p1是介绍，以及引导课"></a>一、p1是介绍，以及引导课</h5><p>略</p>
+<h5 id="二、p2什么是机器学习"><a href="#二、p2什么是机器学习" class="headerlink" title="二、p2什么是机器学习"></a>二、p2什么是机器学习</h5><p>我的理解：让机器通过已知数据进行学习，像人脑一样通过数据总结经验或者说是算法，来应对或预测可能发生的事情。</p>
+<h5 id="三、监督学习"><a href="#三、监督学习" class="headerlink" title="三、监督学习"></a>三、监督学习</h5><ol>
+<li>什么是监督学习？<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">我的白话理解：会给出一组数据，给出答案或者一组真实发生的值，让机器去预测一组没有答案的数据。</span><br><span class="line"></span><br><span class="line">吴老师的说法：监督学习是指我们给算法一个数据集，其中包含了正确答案，算法的目的就是给出更多的正确答案。</span><br><span class="line">eng：we gave the algorithm a data set, in which the &quot;right answers&quot; were given, and the task of the algorith was to just produce more of these right answers.</span><br></pre></td></tr></table></figure></li>
+<li>回归regression<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">我的白话理解：用现有的数据连接为一个线性方程，利用这个线性方程预测可能发生的事情或者数据。</span><br><span class="line"></span><br><span class="line">吴老师的说法：我们想要预测连续的数值输出，给出的数据是离散值，我们设法预测连续值的属性。</span><br><span class="line">eng：we&#x27;re trying to predict a continuous valued output, maybe the given data is actually dicrete values, we&#x27;re trying to predict the sort of continuous values attribute.</span><br></pre></td></tr></table></figure></li>
+<li>分类classification<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">吴老师的说法：我们设法预测一个离散值输出。</span><br><span class="line">eng：we&#x27;re trying to predict a discrete valued output, 0 or 1,2,3...</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h5 id="四、无监督学习"><a href="#四、无监督学习" class="headerlink" title="四、无监督学习"></a>四、无监督学习</h5><ol>
+<li><p>什么是无监督学习</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">我的白话理解：给出一组数据，不给出标准答案，让机器学习自己分类</span><br><span class="line"></span><br><span class="line">吴老师的说法</span><br></pre></td></tr></table></figure></li>
+<li><p>聚类(cluster)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">我的白话理解：整个过程，我们没有告诉机器任何经验，这些经验包括要分成几类、什么样的数据属于什么种类，而是让机器自己对数据进行分类。</span><br><span class="line"></span><br><span class="line">吴老师的说法：基本的思想是给定一组不同的个体，对于每一个个体，机器去测量他们是否属于一个特定的一类。 运行一个聚类算法，归入不同的类。</span><br><span class="line">eng：the idea is to have a group of different individuals, and for each of them, you measure them how much they do or not belong to a certain cluster.</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>聚类-扩展到实际应用-鸡尾酒会算法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">给出一段混合音频，让机器分辨出有几种音频，并分离出多段音频。常常用来分离人声和背景音乐，通常如果规则编写需要编写许多代码，但机器学习只要一行代码，如下：</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[W,s,v] = svd((repmat(sum(x.*x,1),size(x,1),1).*x)*x&#x27;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将使用的工具</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">吴老师建议octave，我们可能会用python替代。</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="2024-06-20-晚-21：39-closed"><a href="#2024-06-20-晚-21：39-closed" class="headerlink" title="2024-06-20 晚 21：39 closed"></a>2024-06-20 晚 21：39 closed</h3>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">machine learning</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2024/06/21/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%90%B4%E6%81%A9%E8%BE%BE%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-p1-p4/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-利用hexo搭建个人博客教程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2024/06/21/%E5%88%A9%E7%94%A8hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/">利用hexo搭建个人博客教程</a>
+    </h1>
+  
+
+        
+        <a href="/2024/06/21/%E5%88%A9%E7%94%A8hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/" class="archive-article-date">
+  	<time datetime="2024-06-21T12:52:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-06-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Hexo-个人博客搭建"><a href="#Hexo-个人博客搭建" class="headerlink" title="Hexo - 个人博客搭建"></a>Hexo - 个人博客搭建</h1><p>参考视频：</p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Yb411a7ty/?vd_source=754c1b7c1f7ebc1037f0d06a92135dcc">https://www.bilibili.com/video/BV1Yb411a7ty/?vd_source=754c1b7c1f7ebc1037f0d06a92135dcc</a></p>
+<p>以下命令使用git bash here执行：</p>
+<ol>
+<li>安装hexo命令</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>创建本地博客目录</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init myblogs</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>进入博客目录</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd myblogs</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>npm安装一下</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>检查下hexo版本</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo -v</span><br></pre></td></tr></table></figure>
+
+<ol start="6">
+<li>创建一篇博客（可以看到创建路径为*\source_posts\我的第一篇博客文章.md）</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new “我的第一篇博客文章”</span><br></pre></td></tr></table></figure>
+
+<ol start="7">
+<li>进入博客文章目录</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd source/_posts</span><br></pre></td></tr></table></figure>
+
+<ol start="8">
+<li>编辑博客文章</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi 我的第一篇博客文章.md</span><br></pre></td></tr></table></figure>
+
+<ol start="9">
+<li>清理一下</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br></pre></td></tr></table></figure>
+
+<ol start="10">
+<li>生成一下</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo generate     (参数直接用g也行)</span><br></pre></td></tr></table></figure>
+
+<ol start="11">
+<li>启动本地hexo服务</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server     (参数直接用s也行)</span><br></pre></td></tr></table></figure>
+
+<ol start="12">
+<li>安装hexo-git推送命令</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install —save hexo-deployer-git</span><br></pre></td></tr></table></figure>
+
+<ol start="13">
+<li>修改配置文件</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi _config.yml</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># Deployment</span><br><span class="line">## Docs: https://hexo.io/docs/one-command-deployment</span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https://github.com/ranchowei/ranchowei.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+
+<ol start="14">
+<li>部署到git</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config —global user.email “*@qq.com”    (第一次提交需要设置全局配置)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config —global user[.](http://user.email)name “abc”    (第一次提交需要设置全局配置)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d  (部署到git，注意上一步中repo仓库地址要正确)</span><br></pre></td></tr></table></figure>
+
+<ol start="15">
+<li>后续有变更或更新文档操作方式</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">hexo new “我的新文章”</span><br><span class="line"></span><br><span class="line">vi 我的新文章.md</span><br><span class="line"></span><br><span class="line">hexo clean   (清理)</span><br><span class="line"></span><br><span class="line">hexo g   (生成)</span><br><span class="line"></span><br><span class="line">hexo d   (部署)</span><br></pre></td></tr></table></figure>
+
+<hr>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">common tutorial</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2024/06/21/%E5%88%A9%E7%94%A8hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-deeplearning.ai-chatgpt提示工程开发者学习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -489,15 +1036,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">test</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">machine learning</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">algorithm and data structure</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">test</a>
               </li>
             
             <div class="clearfix"></div>
