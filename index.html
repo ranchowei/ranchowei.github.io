@@ -163,6 +163,151 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-机器学习-吴恩达系列教程学习笔记-p35-p39" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2024/07/19/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%90%B4%E6%81%A9%E8%BE%BE%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-p35-p39/">机器学习-吴恩达系列教程学习笔记-p35-p39</a>
+    </h1>
+  
+
+        
+        <a href="/2024/07/19/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%90%B4%E6%81%A9%E8%BE%BE%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-p35-p39/" class="archive-article-date">
+  	<time datetime="2024-07-19T02:47:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-07-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="机器学习-吴恩达系列教程学习笔记-p35-p39"><a href="#机器学习-吴恩达系列教程学习笔记-p35-p39" class="headerlink" title="机器学习-吴恩达系列教程学习笔记-p35-p39"></a>机器学习-吴恩达系列教程学习笔记-p35-p39</h1><h2 id="2024-07-19-中午-10-50"><a href="#2024-07-19-中午-10-50" class="headerlink" title="2024-07-19 中午 10:50"></a>2024-07-19 中午 10:50</h2><p>学习材料：<br><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV164411b7dx?p=31&vd_source=754c1b7c1f7ebc1037f0d06a92135dcc">https://www.bilibili.com/video/BV164411b7dx?p=31&amp;vd_source=754c1b7c1f7ebc1037f0d06a92135dcc</a>  </br ></p>
+<h3 id="一、代价函数-逻辑回归的代价函数"><a href="#一、代价函数-逻辑回归的代价函数" class="headerlink" title="一、代价函数 - 逻辑回归的代价函数"></a>一、代价函数 - 逻辑回归的代价函数</h3><p>在p34决策界限中，我们了解到</p>
+<p>假设函数hypothesis为：<br>h(x) &#x3D; 1&#x2F;(1+$e^{-\theta^Tx}$)</p>
+<p>$\theta$ 决定了决策界限的样貌，所以确定了$\theta$等于确定了决策界限，这是我们最关心的，那么怎么获得这个$\theta$ 参数？</p>
+<p>我们回顾下回归问题，我们通过使得代价函数cost function来定义预测值和真实值的差距，越小越好，在逻辑回归(注意强调下逻辑回归不是回归问题是分类问题)中也是如此，但稍有区别。</p>
+<p>直观地考虑我们能否直接使用回归问题中的cost function呢？</p>
+<p>我们来看，回归问题中代价函数表达式如下：</p>
+<p>$ J(\theta)&#x3D;1&#x2F;m \sum_1^m 1&#x2F;2(h_{\theta}( x^{(i)} )- y^{(i)})^2 $</p>
+<p>之后通过梯度下降来使得代价函数在整体$\theta$区间上最小，这在回归问题中是行得通的，是因为代价函数是关于$\theta$的凸函数，只有凸函数才能使用梯度下降取得最小值，关于为什么线性回归的代价函数是凸函数，以及为什么只有凸函数才能取得最小暂时不做数学分析，我们先使用结论。</p>
+<p>而在逻辑回归问题中则不是这样，因为我们的假设函数h(x) &#x3D; 1&#x2F;(1+$e^{-\theta^Tx}$)是一个关于$\theta$的复杂非线性函数，更为重要的是，将假设函数带入代价函数，我们得到的是一个非凸函数，这意味着如图所示，我们只能找到局部最小值，无法好到整体最小值。这里本质原因是因为逻辑回归问题中h(x)是一个非常的非线性函数，它导致了代价函数变为非凸函数</p>
+<p><img src="/./img/2024-06-22-%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0p35-1.png" alt="图片1"><br><img src="https://i.imgur.com/qLUvarI.png" alt="avatar"></p>
+<p>那么，我们既然无法使用回归中的代价函数公式，即无法直观的使用平方差公式，那么我们在逻辑回归问题中可以用什么函数来表示代价函数呢？</p>
+<p>以逻辑回归中的最普遍问题二分类问题为例，这里我们先给出二分类问题中代价函数公式如下：</p>
+<p>$$Cost(h_\theta(x),y)&#x3D;<br>\begin{cases}<br>-log(h_\theta(x))&amp; \text{if y&#x3D;1}\<br>-log(1-h_\theta(x))&amp; \text{if y&#x3D;0}<br>\end{cases}$$</p>
+<p>我们首先理解下这样定义代价函数的意义是什么。首先我们看当y&#x3D;1时，关于$h_\theta(x)$的代价函数是一个区间在0到1之间的函数，因为x轴为假设函数h(x) &#x3D; 1&#x2F;(1+$e^{-\theta^Tx}$)，这个假设函数的阈值只能取到0-1范围内的数。当y&#x3D;1且h(x)&#x3D;1时，cost function为0；当y&#x3D;1且h(x)&#x3D;0时，cost function趋近于无穷大，这个特殊的性质刚好符合我们的场景。可以这么来解释，当真实值y&#x3D;1，且预测值h(x)&#x3D;1，这意味着我们的预测完全准确，所以cost function为0，表示没有偏差，而当真实值y&#x3D;1，而预测值h(x)&#x3D;0，这意味着我们的预测完全错误，那么cost function的值趋近于无穷大，意味着我们的预测与实际差距十万八千里。专业的角度讲，叫做我们的预测值与真实值完全相反，因此我们要给这个算法一个非常大的代价，用来惩罚这种学习算法。</p>
+<p>类推可以得到当y&#x3D;0时，cost function所表示的含义，这里不再重复解释，以下给出代价函数图，用以直观感受：</p>
+<p><img src="/./img/2024-06-22-%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0p35-2.png" alt="图片2"><br><img src="https://i.imgur.com/nHs8EAa.png" alt="avatar"></p>
+<p><img src="/./img/2024-06-22-%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0p35-3.png" alt="图片3"><br><img src="https://i.imgur.com/G71fMua.png" alt="avatar"></p>
+<p>我们构造这样的cost function，它的目的是为了让代价函数$J(\theta)$成为一个凸函数，这样可以让我们使用梯度下降算法，取得整体最小值。</p>
+<h3 id="二、简化代价函数与计算梯度下降"><a href="#二、简化代价函数与计算梯度下降" class="headerlink" title="二、简化代价函数与计算梯度下降"></a>二、简化代价函数与计算梯度下降</h3><p>我们观察这个代价函数：<br>$$Cost(h_\theta(x),y)&#x3D;<br>\begin{cases}<br>-log(h_\theta(x))&amp; \text{if y&#x3D;1}\<br>-log(1-h_\theta(x))&amp; \text{if y&#x3D;0}<br>\end{cases}$$</p>
+<p>可以看到y非0即1，利用这个特性我们来简化表达式，可以得到：<br>$$ Cost(h_\theta(x),y) &#x3D; -y log(h_\theta(x)) - (1-y)log(1-h_\theta(x)) $$</p>
+<p>$$ J(\theta) &#x3D; -1&#x2F;m [ \sum_{i&#x3D;1}^m y^{(i)} log(h_\theta(x^{(i)})) + (1-y^{(i)})log(1-h_\theta(x^{(i)})) ] $$<br>你可能会问，为什么我们要选择这种代价函数，而不是用别的代价函数？这里我们先不细究，先说明原因：这个代价函数公式是出自统计学，使用极大似然法，这是统计学中为不同模型快速找到参数的方法.</p>
+<p>接着我们看看怎么进行梯度下降，首先列出梯度下降的通用公式：</p>
+<p>want $min_\theta J(\theta)$ :</p>
+<p>repeat{<br>    $\theta_j :&#x3D; \theta_j - \alpha \frac{\partial }{\partial \theta_j}J(\theta)$<br>}</p>
+<p>注意需要每一步下降都要同步对所有$\theta_j$操作</p>
+<p>$J(\theta)$代入求导后可以得到以下公式：</p>
+<p>$$\theta_j :&#x3D; \theta_j - \alpha \sum_{i&#x3D;1}^m (h_\theta(x^{(i)}) - y^{(i)})x_j^{(i)} $$</p>
+<p>有趣的是，这个结果公式看起来和回归问题中的梯度下降算法公式一致，区别在于h(x)。</p>
+<p>在回归问题中，<br>$$ h_\theta(x) &#x3D; \theta^TX $$</p>
+<p>在分类问题中(逻辑回归问题)，<br>$$ h_\theta(x) &#x3D; 1&#x2F;(1+e^{-\theta^TX}) $$</p>
+<p>因为假设函数的构造不同，所以两种梯度下降是完全不一样的。</p>
+<p>但是梯度下降的做法是类似的，我们使用batch 梯度下降的做法，并且使用矢量化进行操作，使得我们的操作更简洁高效，最后的目的也是一样，利用梯度下降使得最后代价函数收敛。又比如在回归问题中我们使用特征缩放来使得更快而好的收敛，在分类的逻辑回归问题中也是可以使用的。</p>
+<p>逻辑回归的梯度下降算法是一种非常强大的分类算法，它有可能是世界上运用最广泛的经典算法。</p>
+<h3 id="三、高级优化"><a href="#三、高级优化" class="headerlink" title="三、高级优化"></a>三、高级优化</h3><p>在了解梯度下降算法之后，我们给出一些更高级的算法。</p>
+<ul>
+<li>gradient descent 梯度下降</li>
+<li>conjugate gradient 共轭梯度算法</li>
+<li>BFGS</li>
+<li>L-BFGS</li>
+</ul>
+<p>这些改良的算法advatages好处是：</p>
+<ul>
+<li>不需要人为选择学习速率$\alpha$</li>
+<li>一般来说会比梯度下降算法来的更快</li>
+</ul>
+<p>disadvantages不好的地方有：</p>
+<ul>
+<li>算法往往更复杂</li>
+</ul>
+<p>实际上这些优化算法有自己的智能内循环系统，来使得竞争选取到最优的学习速率。</p>
+<p>因为运行速度的优化，以及可以自动选择学习速率，我们往往会选择后三种优化过的算法。</p>
+<h3 id="四、多元分类"><a href="#四、多元分类" class="headerlink" title="四、多元分类"></a>四、多元分类</h3><p>多元分类英文为multi-class classification</p>
+<p>二分类英文为binary classification</p>
+<p><img src="/./img/2024-06-22-%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0p35-4.png" alt="图片4"><br><img src="https://i.imgur.com/hwBNBH9.png" alt="avatar"></p>
+<p>多分类问题实际是二分类问题的衍生，比如如图所示我们有三种分类，那么我们就构造三种分类器，每一个分类器都仅对一种class情况做训练和分析，这样我们能得到三个二分类问题，</p>
+<p>以此类推，对于一个逻辑回归分类$ h_\theta^{(i)}(x)$，它包含多种class，我们对于输入的x，在每一种class i对应的假设函数都做一次计算，取其中最大值</p>
+<p>$$ max(h_\theta^{(i)}(x))  $$</p>
+<p>因为h(x)代表0-1范围上的数，也代表着可能性，越接近1就越准确，所以上式将得到最为接近的分类。</p>
+<h3 id="五、过拟合问题"><a href="#五、过拟合问题" class="headerlink" title="五、过拟合问题"></a>五、过拟合问题</h3><p>什么是过拟合问题，首先给出以下三种定义：</p>
+<ul>
+<li>underfit(欠拟合) : “high bias”高偏差</li>
+<li>fit(拟合) : 较好的拟合了数据，比较恰当</li>
+<li>overfit(过拟合) : “high variance”高方差</li>
+</ul>
+<p>过拟合表现了一种问题，通过堆积参数来尽可能拟合几乎所有数据，可能导致函数过于庞大、变量过多。</p>
+<p>过拟合问题一般出现在特征过多的时候，代价函数可能趋于0，但是它try too hard去拟合现有的数据，导致其无法泛化到新的样本中。</p>
+<p>那么我们怎么解决过拟合问题呢？</p>
+<ul>
+<li>第一个是要减少变量的选择，或者叫减少特征的选择。reduce number of features，听上去很复杂，但实际上我们有现成的模型选择算法，可以用模型来为我们决定保留哪些特征，但是相对的，当你舍弃特征时也会丢失关于问题的一些信息。</li>
+<li>第二个做法叫正则化，我们保留所有特征，但是我们减少量级或者特征对应$\theta_j$的大小，我的理解就是特征的权重。</li>
+</ul>
+<h2 id="2024-07-19-晚-18-39-closed"><a href="#2024-07-19-晚-18-39-closed" class="headerlink" title="2024-07-19 晚 18:39 closed"></a>2024-07-19 晚 18:39 closed</h2>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">machine learning</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2024/07/19/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%90%B4%E6%81%A9%E8%BE%BE%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-p35-p39/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-机器学习-吴恩达系列教程学习笔记-p30-p34" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -184,7 +329,6 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="机器学习-吴恩达系列教程学习笔记-p30-p34"><a href="#机器学习-吴恩达系列教程学习笔记-p30-p34" class="headerlink" title="机器学习-吴恩达系列教程学习笔记-p30-p34"></a>机器学习-吴恩达系列教程学习笔记-p30-p34</h1><h2 id="2024-07-04-中午-13-25"><a href="#2024-07-04-中午-13-25" class="headerlink" title="2024-07-04 中午 13:25"></a>2024-07-04 中午 13:25</h2><p>学习材料：<br><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV164411b7dx?p=31&vd_source=754c1b7c1f7ebc1037f0d06a92135dcc">https://www.bilibili.com/video/BV164411b7dx?p=31&amp;vd_source=754c1b7c1f7ebc1037f0d06a92135dcc</a>  </br ></p>
-<p>学习进度：p30-p32 3min 14s处  (p30为octave教学暂时跳过)</p>
 <h3 id="一、矢量"><a href="#一、矢量" class="headerlink" title="一、矢量"></a>一、矢量</h3><p>首先，我们要明确一点为什么我们要使用矢量化，或者叫利用向量和矩阵进行计算。</p>
 <p>矢量化实质是因为方便进行复杂运算，和简化公式表示、代码简化。更重要的是矢量计算在各式编程语言中都有优秀的线性代数函数库可以调用，他们都是经过专业程序员高度优化的，使用这些类库进行计算，要比我们自己使用for循环去计算，运行效率要高效的多、且编码的复杂度要下降不少、减少代码出错的概率。</p>
 <p><img src="/./img/2024-06-22-%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0p31-1.png" alt="图片1"><br><img src="https://i.imgur.com/5lE3f0x.png" alt="avatar"></p>
@@ -1137,99 +1281,6 @@
 
 
   
-    <article id="post-机器学习-吴恩达系列教程学习笔记-p15-p19" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2024/06/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%90%B4%E6%81%A9%E8%BE%BE%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-p15-p19/">机器学习-吴恩达系列教程学习笔记-p15-p19</a>
-    </h1>
-  
-
-        
-        <a href="/2024/06/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%90%B4%E6%81%A9%E8%BE%BE%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-p15-p19/" class="archive-article-date">
-  	<time datetime="2024-06-24T04:33:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-06-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="机器学习-吴恩达系列教程学习笔记-p15-p19"><a href="#机器学习-吴恩达系列教程学习笔记-p15-p19" class="headerlink" title="机器学习-吴恩达系列教程学习笔记-p15-p19"></a>机器学习-吴恩达系列教程学习笔记-p15-p19</h1><h2 id="2024-06-24-中午-12-34"><a href="#2024-06-24-中午-12-34" class="headerlink" title="2024-06-24 中午 12:34"></a>2024-06-24 中午 12:34</h2><p>学习材料：<br><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV164411b7dx?p=19&spm_id_from=pageDriver&vd_source=754c1b7c1f7ebc1037f0d06a92135dcc">https://www.bilibili.com/video/BV164411b7dx?p=19&amp;spm_id_from=pageDriver&amp;vd_source=754c1b7c1f7ebc1037f0d06a92135dcc</a> <br /><br>进度：p15-p19</p>
-<h3 id="一、矩阵乘法"><a href="#一、矩阵乘法" class="headerlink" title="一、矩阵乘法"></a>一、矩阵乘法</h3><p>A(m*n) x B(n*o) &#x3D; C(m*o) <br /><br>请注意A的列数n必须等于B的行数n <br /><br>在计算时整体思想是把第二个矩阵B拆分成多个向量vector，逐一与A相乘。 <br /></p>
-<p>如图所示，矩阵乘法可以在我们给出假设的h(x)算法时，用来同时计算多组预测结果。<br><img src="/./img/2024-06-22-%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0p15-1.png" alt="图片1"><br><img src="https://i.imgur.com/eaOyVmC.png" alt="avatar"><br>技巧一是把h(x)的系数看成是一个向量，把多个向量拼接构成一个矩阵。技巧二是把样本x看成一个(1,x)矩阵，将多个矩阵拼接构成一个大矩阵。</p>
-<h3 id="二、矩阵乘法特征"><a href="#二、矩阵乘法特征" class="headerlink" title="二、矩阵乘法特征"></a>二、矩阵乘法特征</h3><ol>
-<li>矩阵不满足交换律(commutative) : A X B !&#x3D; B X A</li>
-<li>矩阵满足结合律(associative)A X B X C &#x3D; A X (B X C)</li>
-<li>单位矩阵(identity matrix): 通常我们用I标记单位矩阵，记作I(n X n)。特点是沿对角线上都是1，其他位置都是0。it has ones along the diagonals.And is zero anywhere else.<br /><br>对于任意的矩阵A，有以下公式成立：<br>A(m x n) * I(n x n) &#x3D; I(m x m) * A(m x n) &#x3D; A(m x n)</li>
-</ol>
-<h3 id="三、逆和转置"><a href="#三、逆和转置" class="headerlink" title="三、逆和转置"></a>三、逆和转置</h3><ol>
-<li><p>矩阵的逆(matrix inverse): $A$ * $A^{-1}$ &#x3D; $A^{-1}$ * $A$ &#x3D; $I$ <br /><br>请注意部分矩阵是没有逆矩阵的，比如全0矩阵。<br /><br>这种没有逆矩阵的矩阵转有名词是奇异矩阵(singular matrix)。 <br /></p>
-</li>
-<li><p>矩阵的转置(matrix transpose): 把第一行顺时针转动90度，取到第一列，以此类推。 <br /><br>假设A是m x n的矩阵，那么A的转置B就是一个n x m的矩阵。并且，$B_{ij}$ &#x3D; $A_{ji}$</p>
-</li>
-</ol>
-<h3 id="四、多功能"><a href="#四、多功能" class="headerlink" title="四、多功能"></a>四、多功能</h3><p>这一节会讨论一种新的线性回归算法，是一种更有效的方式，这种形式适用于多个变量。 <br /><br>约定表达方式如下：<br /><br>n &#x3D; number of features. 元素的数量<br /><br>$x^{(i)}$ &#x3D; input (feature) of $i^{th}$ training example.代表第i组样本 <br /><br>$x^{(i)}_j$ &#x3D; value. 代表第i组样本中第j个元素的值 <br /></p>
-<p>一般地，给出算法hypothesis如下：<br /><br>$h_{\theta}$(x) &#x3D; $\theta_0$ + $\theta_1$ $x_1$ + $\theta_2$ $x_2$ + … + $\theta_n$ $x_n$ <br /></p>
-<p>denote $x_0$ &#x3D; 1, <br /><br>$h_{\theta}$(x) &#x3D; $\theta_0$ $x_0$ + $\theta_1$ $x_1$ + $\theta_2$ $x_2$ + … + $\theta_n$ $x_n$ <br /><br>denote x 为一个vector向量，$\theta$也为一个vector向量。<br /><br>$h_{\theta}$(x) &#x3D; $\theta^T$ x <br /><br>这一公式就是所谓的多元线性回归multivariate linear regression.通俗地说，是指我们使用多个特征量或者变量来预测y值。</p>
-<h3 id="五、多元梯度下降"><a href="#五、多元梯度下降" class="headerlink" title="五、多元梯度下降"></a>五、多元梯度下降</h3><p>那么你可能会问，多元线性回归，怎么做梯度下降呢？</p>
-<p>hypothesis函数：<br>$h_{\theta}$(x) &#x3D; $\theta_0$ + $\theta_1$ $x_1$ + $\theta_2$ $x_2$ + … + $\theta_n$ $x_n$ <br /><br>parameters参数：<br>$\theta_0$,$\theta_1$…,$\theta_n$  可以看作n+1 dimensioned vector (n+1维的向量) <br /><br>cost function代价函数：<br>J($\theta_0,\theta_1$,…,$\theta_n$)&#x3D;1&#x2F;2m $\sum_1^m$ ($h_\theta$($x^{(i)}$)-$y^{(i)}$)$^2$ <br /><br>gradient descent 梯度下降：<br /><br>repeat{<br /><br>    $\theta_j$:&#x3D;$\theta_j$-$\alpha$ $\frac{\partial }{\partial \theta_j}$ J($\theta_0$,…,$\theta_n$)  for(j&#x3D;0,…,n) <br /><br>} </p>
-<p>相似地，我们可以推演得到：<br /><br><img src="/./img/2024-06-22-%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0p19-1.png" alt="图片2"><br><img src="https://i.imgur.com/H38OOfE.png" alt="avatar"><br>至此，我们得到了一个多元线性回归模型。<br /><br>这里的推演稍微有些复杂，可以多看看…</p>
-<h2 id="2024-06-24-中午-14-17-closed"><a href="#2024-06-24-中午-14-17-closed" class="headerlink" title="2024-06-24 中午 14:17 closed."></a>2024-06-24 中午 14:17 closed.</h2>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">machine learning</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2024/06/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%90%B4%E6%81%A9%E8%BE%BE%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-p15-p19/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1352,7 +1403,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">common tutorial</a>
+                <a href="javascript:void(0)" class="js-tag color5">test</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1360,11 +1411,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">algorithm and data structure</a>
+                <a href="javascript:void(0)" class="js-tag color1">common tutorial</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">test</a>
+                <a href="javascript:void(0)" class="js-tag color4">algorithm and data structure</a>
               </li>
             
             <div class="clearfix"></div>

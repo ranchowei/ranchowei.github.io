@@ -163,6 +163,99 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-机器学习-吴恩达系列教程学习笔记-p15-p19" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2024/06/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%90%B4%E6%81%A9%E8%BE%BE%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-p15-p19/">机器学习-吴恩达系列教程学习笔记-p15-p19</a>
+    </h1>
+  
+
+        
+        <a href="/2024/06/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%90%B4%E6%81%A9%E8%BE%BE%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-p15-p19/" class="archive-article-date">
+  	<time datetime="2024-06-24T04:33:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-06-24</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="机器学习-吴恩达系列教程学习笔记-p15-p19"><a href="#机器学习-吴恩达系列教程学习笔记-p15-p19" class="headerlink" title="机器学习-吴恩达系列教程学习笔记-p15-p19"></a>机器学习-吴恩达系列教程学习笔记-p15-p19</h1><h2 id="2024-06-24-中午-12-34"><a href="#2024-06-24-中午-12-34" class="headerlink" title="2024-06-24 中午 12:34"></a>2024-06-24 中午 12:34</h2><p>学习材料：<br><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV164411b7dx?p=19&spm_id_from=pageDriver&vd_source=754c1b7c1f7ebc1037f0d06a92135dcc">https://www.bilibili.com/video/BV164411b7dx?p=19&amp;spm_id_from=pageDriver&amp;vd_source=754c1b7c1f7ebc1037f0d06a92135dcc</a> <br /><br>进度：p15-p19</p>
+<h3 id="一、矩阵乘法"><a href="#一、矩阵乘法" class="headerlink" title="一、矩阵乘法"></a>一、矩阵乘法</h3><p>A(m*n) x B(n*o) &#x3D; C(m*o) <br /><br>请注意A的列数n必须等于B的行数n <br /><br>在计算时整体思想是把第二个矩阵B拆分成多个向量vector，逐一与A相乘。 <br /></p>
+<p>如图所示，矩阵乘法可以在我们给出假设的h(x)算法时，用来同时计算多组预测结果。<br><img src="/./img/2024-06-22-%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0p15-1.png" alt="图片1"><br><img src="https://i.imgur.com/eaOyVmC.png" alt="avatar"><br>技巧一是把h(x)的系数看成是一个向量，把多个向量拼接构成一个矩阵。技巧二是把样本x看成一个(1,x)矩阵，将多个矩阵拼接构成一个大矩阵。</p>
+<h3 id="二、矩阵乘法特征"><a href="#二、矩阵乘法特征" class="headerlink" title="二、矩阵乘法特征"></a>二、矩阵乘法特征</h3><ol>
+<li>矩阵不满足交换律(commutative) : A X B !&#x3D; B X A</li>
+<li>矩阵满足结合律(associative)A X B X C &#x3D; A X (B X C)</li>
+<li>单位矩阵(identity matrix): 通常我们用I标记单位矩阵，记作I(n X n)。特点是沿对角线上都是1，其他位置都是0。it has ones along the diagonals.And is zero anywhere else.<br /><br>对于任意的矩阵A，有以下公式成立：<br>A(m x n) * I(n x n) &#x3D; I(m x m) * A(m x n) &#x3D; A(m x n)</li>
+</ol>
+<h3 id="三、逆和转置"><a href="#三、逆和转置" class="headerlink" title="三、逆和转置"></a>三、逆和转置</h3><ol>
+<li><p>矩阵的逆(matrix inverse): $A$ * $A^{-1}$ &#x3D; $A^{-1}$ * $A$ &#x3D; $I$ <br /><br>请注意部分矩阵是没有逆矩阵的，比如全0矩阵。<br /><br>这种没有逆矩阵的矩阵转有名词是奇异矩阵(singular matrix)。 <br /></p>
+</li>
+<li><p>矩阵的转置(matrix transpose): 把第一行顺时针转动90度，取到第一列，以此类推。 <br /><br>假设A是m x n的矩阵，那么A的转置B就是一个n x m的矩阵。并且，$B_{ij}$ &#x3D; $A_{ji}$</p>
+</li>
+</ol>
+<h3 id="四、多功能"><a href="#四、多功能" class="headerlink" title="四、多功能"></a>四、多功能</h3><p>这一节会讨论一种新的线性回归算法，是一种更有效的方式，这种形式适用于多个变量。 <br /><br>约定表达方式如下：<br /><br>n &#x3D; number of features. 元素的数量<br /><br>$x^{(i)}$ &#x3D; input (feature) of $i^{th}$ training example.代表第i组样本 <br /><br>$x^{(i)}_j$ &#x3D; value. 代表第i组样本中第j个元素的值 <br /></p>
+<p>一般地，给出算法hypothesis如下：<br /><br>$h_{\theta}$(x) &#x3D; $\theta_0$ + $\theta_1$ $x_1$ + $\theta_2$ $x_2$ + … + $\theta_n$ $x_n$ <br /></p>
+<p>denote $x_0$ &#x3D; 1, <br /><br>$h_{\theta}$(x) &#x3D; $\theta_0$ $x_0$ + $\theta_1$ $x_1$ + $\theta_2$ $x_2$ + … + $\theta_n$ $x_n$ <br /><br>denote x 为一个vector向量，$\theta$也为一个vector向量。<br /><br>$h_{\theta}$(x) &#x3D; $\theta^T$ x <br /><br>这一公式就是所谓的多元线性回归multivariate linear regression.通俗地说，是指我们使用多个特征量或者变量来预测y值。</p>
+<h3 id="五、多元梯度下降"><a href="#五、多元梯度下降" class="headerlink" title="五、多元梯度下降"></a>五、多元梯度下降</h3><p>那么你可能会问，多元线性回归，怎么做梯度下降呢？</p>
+<p>hypothesis函数：<br>$h_{\theta}$(x) &#x3D; $\theta_0$ + $\theta_1$ $x_1$ + $\theta_2$ $x_2$ + … + $\theta_n$ $x_n$ <br /><br>parameters参数：<br>$\theta_0$,$\theta_1$…,$\theta_n$  可以看作n+1 dimensioned vector (n+1维的向量) <br /><br>cost function代价函数：<br>J($\theta_0,\theta_1$,…,$\theta_n$)&#x3D;1&#x2F;2m $\sum_1^m$ ($h_\theta$($x^{(i)}$)-$y^{(i)}$)$^2$ <br /><br>gradient descent 梯度下降：<br /><br>repeat{<br /><br>    $\theta_j$:&#x3D;$\theta_j$-$\alpha$ $\frac{\partial }{\partial \theta_j}$ J($\theta_0$,…,$\theta_n$)  for(j&#x3D;0,…,n) <br /><br>} </p>
+<p>相似地，我们可以推演得到：<br /><br><img src="/./img/2024-06-22-%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0p19-1.png" alt="图片2"><br><img src="https://i.imgur.com/H38OOfE.png" alt="avatar"><br>至此，我们得到了一个多元线性回归模型。<br /><br>这里的推演稍微有些复杂，可以多看看…</p>
+<h2 id="2024-06-24-中午-14-17-closed"><a href="#2024-06-24-中午-14-17-closed" class="headerlink" title="2024-06-24 中午 14:17 closed."></a>2024-06-24 中午 14:17 closed.</h2>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">machine learning</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2024/06/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%90%B4%E6%81%A9%E8%BE%BE%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-p15-p19/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-机器学习-吴恩达系列教程学习笔记-p10-p14" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1032,7 +1125,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">common tutorial</a>
+                <a href="javascript:void(0)" class="js-tag color5">test</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1040,11 +1133,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">algorithm and data structure</a>
+                <a href="javascript:void(0)" class="js-tag color1">common tutorial</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">test</a>
+                <a href="javascript:void(0)" class="js-tag color4">algorithm and data structure</a>
               </li>
             
             <div class="clearfix"></div>
